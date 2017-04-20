@@ -77,6 +77,9 @@
 		C27C6C0B1EA8BA940018A423 /* iOS-MVVMC-Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				C27C6C2E1EA8BB6A0018A423 /* ViewModel */,
+				C27C6C2D1EA8BB520018A423 /* View */,
+				C27C6C2C1EA8BB080018A423 /* Model */,
 				C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */,
 				C27C6C0E1EA8BA940018A423 /* ViewController.swift */,
 				C27C6C101EA8BA940018A423 /* Main.storyboard */,
@@ -94,6 +97,27 @@
 				C27C6C231EA8BA940018A423 /* Info.plist */,
 			);
 			path = "iOS-MVVMC-ArchitectureTests";
+			sourceTree = "<group>";
+		};
+		C27C6C2C1EA8BB080018A423 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C27C6C2D1EA8BB520018A423 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C27C6C2E1EA8BB6A0018A423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +430,7 @@
 				C27C6C281EA8BA940018A423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C27C6C291EA8BA940018A423 /* Build configuration list for PBXNativeTarget "iOS-MVVMC-ArchitectureTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +439,7 @@
 				C27C6C2B1EA8BA940018A423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E79BD946AFFA952395A17BF7A7F72773BC9AF3D2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E79BD946AFFA952395A17BF7A7F72773BC9AF3D2" : 9223372036854775807,
+    "91296384F6656A96C3C28C62B35FA40FCCDD4E92" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "49532821-C8CF-4AC8-983D-702EF98313F2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E79BD946AFFA952395A17BF7A7F72773BC9AF3D2" : "iOS-MVVMC-Architecture\/",
+    "91296384F6656A96C3C28C62B35FA40FCCDD4E92" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iOS-MVVMC-Architecture",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS-MVVMC-Architecture.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:macdevnet\/mvvmc-demo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "91296384F6656A96C3C28C62B35FA40FCCDD4E92"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:hachinobu\/iOS-MVVMC-Architecture.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E79BD946AFFA952395A17BF7A7F72773BC9AF3D2"
+    }
+  ]
+}
