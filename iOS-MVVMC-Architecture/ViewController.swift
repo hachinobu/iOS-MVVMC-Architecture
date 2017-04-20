@@ -7,19 +7,63 @@
 //
 
 import UIKit
+import RxSwift
+import Accounts
+import Action
+import RxCocoa
 
 class ViewController: UIViewController {
 
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let viewModel = HomeTimeLineViewModel()
+        
+        viewModel.authError
+            .filter { $0 != nil }
+            .drive(onNext: { error in
+                print(error!)
+            }).addDisposableTo(bag)
+        
+        viewModel.authStatus
+            .filter { $0.noUser() }
+            .drive(onNext: { _ in
+                print("userがいない")
+            }).addDisposableTo(bag)
+        
+        viewModel.authAccount
+            .drive(onNext: { (account) in
+                print(account)
+            }).addDisposableTo(bag)
+        
+        
+        viewModel.tweets.drive(onNext: { (tweets) in
+            print(tweets.count)
+        }).addDisposableTo(bag)
+        
+//        viewModel.error.withLatestFrom(viewModel.authError) { (e, ae) in
+//            
+//        }
+        
+        viewModel.error.drive(onNext: { (e) in
+            print(e)
+        }).addDisposableTo(bag)
+        
+        let btn = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        btn.backgroundColor = .blue
+        view.addSubview(btn)
+        btn.rx.tap.subscribe { _ in
+            viewModel.fetchActionTrigger.onNext(1)
+        }.addDisposableTo(bag)
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

@@ -14,6 +14,19 @@
 		C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C131EA8BA940018A423 /* Assets.xcassets */; };
 		C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */; };
 		C27C6C221EA8BA940018A423 /* iOS_MVVMC_ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C211EA8BA940018A423 /* iOS_MVVMC_ArchitectureTests.swift */; };
+		C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C2F1EA8C2BE0018A423 /* AuthenticateTwitter.swift */; };
+		C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C311EA8D5AC0018A423 /* TwitterRequestProtocol.swift */; };
+		C27C6C341EA8DFEE0018A423 /* HomeTimelineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C331EA8DFEE0018A423 /* HomeTimelineRequest.swift */; };
+		C2814A751EAE124600A11462 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A741EAE124600A11462 /* User.swift */; };
+		C2814A771EAE19B900A11462 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A761EAE19B900A11462 /* Tweet.swift */; };
+		C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */; };
+		C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A7A1EAE1F9000A11462 /* Translator.swift */; };
+		C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A7C1EAE1FDA00A11462 /* ValueObjectTranslator.swift */; };
+		C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A841EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift */; };
+		C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A861EAF473C00A11462 /* NetworkValidator.swift */; };
+		C2814A891EAF476200A11462 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A881EAF476200A11462 /* Validator.swift */; };
+		C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */; };
+		C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +53,19 @@
 		C27C6C1D1EA8BA940018A423 /* iOS-MVVMC-ArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-MVVMC-ArchitectureTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C211EA8BA940018A423 /* iOS_MVVMC_ArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_MVVMC_ArchitectureTests.swift; sourceTree = "<group>"; };
 		C27C6C231EA8BA940018A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27C6C2F1EA8C2BE0018A423 /* AuthenticateTwitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateTwitter.swift; sourceTree = "<group>"; };
+		C27C6C311EA8D5AC0018A423 /* TwitterRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequestProtocol.swift; sourceTree = "<group>"; };
+		C27C6C331EA8DFEE0018A423 /* HomeTimelineRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineRequest.swift; sourceTree = "<group>"; };
+		C2814A741EAE124600A11462 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C2814A761EAE19B900A11462 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterApiClient.swift; sourceTree = "<group>"; };
+		C2814A7A1EAE1F9000A11462 /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		C2814A7C1EAE1FDA00A11462 /* ValueObjectTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueObjectTranslator.swift; sourceTree = "<group>"; };
+		C2814A841EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TwitterRequestProtocol+Translator.swift"; sourceTree = "<group>"; };
+		C2814A861EAF473C00A11462 /* NetworkValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkValidator.swift; sourceTree = "<group>"; };
+		C2814A881EAF476200A11462 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TwitterRequest+Validator.swift"; sourceTree = "<group>"; };
+		C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +143,17 @@
 		C27C6C2C1EA8BB080018A423 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2814A731EAE105E00A11462 /* ValueObject */,
+				C27C6C2F1EA8C2BE0018A423 /* AuthenticateTwitter.swift */,
+				C27C6C311EA8D5AC0018A423 /* TwitterRequestProtocol.swift */,
+				C2814A841EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift */,
+				C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */,
+				C27C6C331EA8DFEE0018A423 /* HomeTimelineRequest.swift */,
+				C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */,
+				C2814A7A1EAE1F9000A11462 /* Translator.swift */,
+				C2814A861EAF473C00A11462 /* NetworkValidator.swift */,
+				C2814A881EAF476200A11462 /* Validator.swift */,
+				C2814A7C1EAE1FDA00A11462 /* ValueObjectTranslator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,8 +168,18 @@
 		C27C6C2E1EA8BB6A0018A423 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C2814A731EAE105E00A11462 /* ValueObject */ = {
+			isa = PBXGroup;
+			children = (
+				C2814A741EAE124600A11462 /* User.swift */,
+				C2814A761EAE19B900A11462 /* Tweet.swift */,
+			);
+			path = ValueObject;
 			sourceTree = "<group>";
 		};
 		DE6030CE987F86E7363FD002 /* Pods */ = {
@@ -273,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EF5B73038BE2E5B675BF2E3C /* [CP] Copy Pods Resources */ = {
@@ -299,7 +346,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */,
+				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
+				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
+				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
+				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
+				C2814A751EAE124600A11462 /* User.swift in Sources */,
+				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
+				C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */,
+				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
+				C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */,
+				C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */,
+				C27C6C341EA8DFEE0018A423 /* HomeTimelineRequest.swift in Sources */,
+				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
+				C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

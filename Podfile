@@ -7,4 +7,5 @@ target 'iOS-MVVMC-Architecture' do
     pod 'ObjectMapper', '~> 2.2'
     pod 'Kingfisher', '~> 3.0'
     pod 'SamuraiTransition'
+    pod 'Action'
 end
