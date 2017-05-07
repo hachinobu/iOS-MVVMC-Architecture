@@ -16,31 +16,13 @@ class HomeTimeLineViewModel {
     
     private let bag = DisposeBag()
     
-    var tweets: Driver<[Tweet]> {
-        return fetchAction.elements.asDriver(onErrorJustReturn: [])
-    }
+    let authStatus: Driver<AuthenticateTwitter.AuthStatus>
+    let authError: Driver<Error?>
     
-    var error: Driver<Error> {
-        
-        return fetchAction.errors.asDriver(onErrorDriveWith: .empty())
-            .flatMap { error -> Driver<Error> in
-                switch error {
-                case .underlyingError(let error):
-                    return Driver.just(error)
-                case .notEnabled:
-                    return Driver.empty()
-                }
-        }
-        
-    }
+    let tweets: Driver<[Tweet]>
+    let error: Driver<Error>
     
-    var authStatus: Driver<AuthenticateTwitter.AuthStatus> {
-        return authTwitter.currentStatus
-    }
     
-    var authError: Driver<Error?> {
-        return authTwitter.authError
-    }
     
     var authAccount: Driver<ACAccount> {
         return authTwitter.currentAccount
@@ -55,11 +37,26 @@ class HomeTimeLineViewModel {
     init(viewDidLoad: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
-        self.fetchAction = Action { page in
+        fetchAction = Action { page in
             account
                 .map { HomeTimelineRequest(account: $0, parameters: [:]) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .shareReplayLatestWhileConnected()
+        }
+        
+        authStatus = authTwitter.currentStatus
+        authError = authTwitter.authError
+        
+        tweets = fetchAction.elements.asDriver(onErrorJustReturn: [])
+        
+        error = fetchAction.errors.asDriver(onErrorDriveWith: .empty())
+            .flatMap { error -> Driver<Error> in
+                switch error {
+                case .underlyingError(let error):
+                    return Driver.just(error)
+                case .notEnabled:
+                    return Driver.empty()
+                }
         }
         
         viewDidLoad.asObservable()
