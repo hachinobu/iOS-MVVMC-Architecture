@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4641AD2554EC350542DFC764 /* Pods_iOS_MVVMC_Architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */; };
+		ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
 		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		09D4B0C4CCE59B35B17E27F3 /* Pods-iOS-MVVMC-Architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.debug.xcconfig"; sourceTree = "<group>"; };
 		5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVMC_Architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+RxExtension.swift"; sourceTree = "<group>"; };
 		BBF18F7CBAF7FA627BF6CFEC /* Pods-iOS-MVVMC-Architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.release.xcconfig"; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ADF5D40A1EBF555E009E9F60 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C27C6C001EA8BA940018A423 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		C27C6C0B1EA8BA940018A423 /* iOS-MVVMC-Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				ADF5D40A1EBF555E009E9F60 /* Extension */,
 				C27C6C2E1EA8BB6A0018A423 /* ViewModel */,
 				C27C6C2D1EA8BB520018A423 /* View */,
 				C27C6C2C1EA8BB080018A423 /* Model */,
@@ -345,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
 				C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,

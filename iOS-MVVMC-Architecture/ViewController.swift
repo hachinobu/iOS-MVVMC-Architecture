@@ -15,11 +15,11 @@ import RxCocoa
 class ViewController: UIViewController {
 
     private let bag = DisposeBag()
+    var viewModel: HomeTimeLineViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let viewModel = HomeTimeLineViewModel()
+        viewModel = HomeTimeLineViewModel(viewDidLoad: rx.viewWillAppear.asDriver())
         
         viewModel.authError
             .filter { $0 != nil }
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         btn.backgroundColor = .blue
         view.addSubview(btn)
         btn.rx.tap.subscribe { _ in
-            viewModel.fetchActionTrigger.onNext(1)
+//            viewModel.fetchActionTrigger.onNext(1)
         }.addDisposableTo(bag)
         
     }
