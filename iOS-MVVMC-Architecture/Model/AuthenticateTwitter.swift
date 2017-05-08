@@ -14,18 +14,15 @@ import Action
 
 class AuthenticateTwitter {
     
-    enum AuthenticatedError: Error {
-        case accountType
-    }
-    
     enum AuthStatus {
         case none
-        case noUsers
+        case denied
+        case noAccounts
         case authenticated(ACAccount)
         
-        func noUser() -> Bool {
+        func noAccount() -> Bool {
             switch self {
-            case .noUsers:
+            case .noAccounts:
                 return true
             default:
                 return false
@@ -47,6 +44,17 @@ class AuthenticateTwitter {
                 return account
             default:
                 return nil
+            }
+        }
+        
+        func fetchAuthMessage() -> String {
+            switch self {
+            case .denied:
+                return "Twitterアカウント取得の権限がありません。\n[設定]-[プライバシー]からTwitterを許可してください"
+            case .noAccounts:
+                return "Twitterアカウントが登録されていません。\n[設定]-[Twitter]からアカウントを登録してください"
+            default:
+                return ""
             }
         }
         
@@ -100,8 +108,13 @@ class AuthenticateTwitter {
                 return
             }
             
+            guard isSuccess else {
+                self.innerCurrentStatus.value = .denied
+                return
+            }
+            
             guard let accountList = accountStore.accounts(with: type) as? [ACAccount], accountList.count > 0 else {
-                self.innerCurrentStatus.value = .noUsers
+                self.innerCurrentStatus.value = .noAccounts
                 return
             }
             
@@ -130,7 +143,7 @@ class AuthenticateTwitter {
                 }
                 
                 guard let accountList = accountStore.accounts(with: type) as? [ACAccount], accountList.count > 0 else {
-                    self.innerCurrentStatus.value = .noUsers
+                    self.innerCurrentStatus.value = .noAccounts
                     observer.onCompleted()
                     return
                 }

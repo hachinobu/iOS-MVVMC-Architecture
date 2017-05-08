@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             }).addDisposableTo(bag)
         
         viewModel.authStatus
-            .filter { $0.noUser() }
+            .filter { $0.noAccount() }
             .drive(onNext: { _ in
                 print("userがいない")
             }).addDisposableTo(bag)
