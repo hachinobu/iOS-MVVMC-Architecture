@@ -57,33 +57,33 @@ class AuthenticateTwitter {
     private let bag = DisposeBag()
     
     private let innerAccountList: Variable<[ACAccount]> = Variable([])
-    var accountList: Driver<[ACAccount]> {
-        return innerAccountList.asDriver()
-    }
+    lazy var accountList: Driver<[ACAccount]> = {
+        return self.innerAccountList.asDriver()
+    }()
     
-    var account: Observable<Void> {
+    lazy var account: Observable<AuthStatus> = {
         return self.fetchAccount()
-    }
+    }()
     
     private let innerCurrentStatus = Variable<AuthStatus>(.none)
-    var currentStatus: Driver<AuthStatus> {
-        return innerCurrentStatus.asDriver()
-    }
-    var currentAccount: Driver<ACAccount> {
-        return innerCurrentStatus.asDriver()
+    lazy var currentStatus: Driver<AuthStatus> = {
+        return self.innerCurrentStatus.asDriver()
+    }()
+    lazy var currentAccount: Driver<ACAccount> = {
+        return self.innerCurrentStatus.asDriver()
             .filter { $0.isAuthenticated() }
             .map { $0.fetchAccount()! }
-    }
+    }()
     
     private let innerAuthError = Variable<Error?>(nil)
-    var authError: Driver<Error?> {
-        return innerAuthError.asDriver()
-    }
+    lazy var authError: Driver<Error?> = {
+        return self.innerAuthError.asDriver()
+    }()
     
     let trigger = PublishSubject<Void>()
     
     init() {
-        trigger.bind { () in
+        trigger.bind { _ in
             self.authenticatedTwitter()
         }.addDisposableTo(bag)
     }
@@ -115,7 +115,7 @@ class AuthenticateTwitter {
         
     }
     
-    private func fetchAccount() -> Observable<Void> {
+    private func fetchAccount() -> Observable<AuthStatus> {
         
         return Observable.create { observer -> Disposable in
             
@@ -140,7 +140,7 @@ class AuthenticateTwitter {
                 if accountList.count == 1 {
                     self.innerCurrentStatus.value = status
                 }
-                observer.onNext()
+                observer.onNext(status)
                 observer.onCompleted()
                 
             }

@@ -16,13 +16,29 @@ class HomeTimeLineViewModel {
     
     private let bag = DisposeBag()
     
-    let authStatus: Driver<AuthenticateTwitter.AuthStatus>
-    let authError: Driver<Error?>
+    lazy var authStatus: Driver<AuthenticateTwitter.AuthStatus> = {
+        return self.authTwitter.currentStatus
+    }()
     
-    let tweets: Driver<[Tweet]>
-    let error: Driver<Error>
+    lazy var authError: Driver<Error?> = {
+        return self.authTwitter.authError
+    }()
     
+    lazy var tweets: Driver<[Tweet]> = {
+        return self.fetchAction.elements.asDriver(onErrorJustReturn: [])
+    }()
     
+    lazy var error: Driver<Error> = {
+        self.fetchAction.errors.asDriver(onErrorDriveWith: .empty())
+            .flatMap { error -> Driver<Error> in
+                switch error {
+                case .underlyingError(let error):
+                    return Driver.just(error)
+                case .notEnabled:
+                    return Driver.empty()
+                }
+        }
+    }()
     
     var authAccount: Driver<ACAccount> {
         return authTwitter.currentAccount
@@ -34,6 +50,10 @@ class HomeTimeLineViewModel {
     
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
+    lazy var auth: Observable<AuthenticateTwitter.AuthStatus> = {
+        return self.authTwitter.account
+    }()
+    
     init(viewDidLoad: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
@@ -44,25 +64,11 @@ class HomeTimeLineViewModel {
                 .shareReplayLatestWhileConnected()
         }
         
-        authStatus = authTwitter.currentStatus
-        authError = authTwitter.authError
-        
-        tweets = fetchAction.elements.asDriver(onErrorJustReturn: [])
-        
-        error = fetchAction.errors.asDriver(onErrorDriveWith: .empty())
-            .flatMap { error -> Driver<Error> in
-                switch error {
-                case .underlyingError(let error):
-                    return Driver.just(error)
-                case .notEnabled:
-                    return Driver.empty()
-                }
-        }
-        
         viewDidLoad.asObservable()
             .map { 1 }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
+        
         
     }
     
