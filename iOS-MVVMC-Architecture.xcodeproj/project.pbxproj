@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4641AD2554EC350542DFC764 /* Pods_iOS_MVVMC_Architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */; };
 		ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */; };
+		ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */; };
+		ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */; };
+		ADF5D4131EC1F9F3009E9F60 /* AccountListCorodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4121EC1F9F3009E9F60 /* AccountListCorodinator.swift */; };
+		ADF5D4181EC1FD04009E9F60 /* AccountList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D4171EC1FD04009E9F60 /* AccountList.storyboard */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
@@ -46,6 +50,10 @@
 		09D4B0C4CCE59B35B17E27F3 /* Pods-iOS-MVVMC-Architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.debug.xcconfig"; sourceTree = "<group>"; };
 		5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVMC_Architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+RxExtension.swift"; sourceTree = "<group>"; };
+		ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		ADF5D4121EC1F9F3009E9F60 /* AccountListCorodinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountListCorodinator.swift; sourceTree = "<group>"; };
+		ADF5D4171EC1FD04009E9F60 /* AccountList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountList.storyboard; sourceTree = "<group>"; };
 		BBF18F7CBAF7FA627BF6CFEC /* Pods-iOS-MVVMC-Architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.release.xcconfig"; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -111,6 +119,24 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		ADF5D40D1EC1F711009E9F60 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */,
+				ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */,
+				ADF5D4121EC1F9F3009E9F60 /* AccountListCorodinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADF5D4161EC1FCDD009E9F60 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				ADF5D4171EC1FD04009E9F60 /* AccountList.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C27C6C001EA8BA940018A423 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +160,7 @@
 		C27C6C0B1EA8BA940018A423 /* iOS-MVVMC-Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				ADF5D40D1EC1F711009E9F60 /* Coordinator */,
 				ADF5D40A1EBF555E009E9F60 /* Extension */,
 				C27C6C2E1EA8BB6A0018A423 /* ViewModel */,
 				C27C6C2D1EA8BB520018A423 /* View */,
@@ -178,6 +205,7 @@
 		C27C6C2D1EA8BB520018A423 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADF5D4161EC1FCDD009E9F60 /* Storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +324,7 @@
 			files = (
 				C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */,
 				C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */,
+				ADF5D4181EC1FD04009E9F60 /* AccountList.storyboard in Resources */,
 				C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,12 +396,15 @@
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
+				ADF5D4131EC1F9F3009E9F60 /* AccountListCorodinator.swift in Sources */,
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
+				ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */,
 				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
 				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
 				C2814A751EAE124600A11462 /* User.swift in Sources */,
 				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
+				ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */,
 				C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
 				C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */,
