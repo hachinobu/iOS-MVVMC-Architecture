@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4641AD2554EC350542DFC764 /* Pods_iOS_MVVMC_Architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */; };
 		ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */; };
+		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
+		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
 		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVMC_Architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+RxExtension.swift"; sourceTree = "<group>"; };
 		BBF18F7CBAF7FA627BF6CFEC /* Pods-iOS-MVVMC-Architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.release.xcconfig"; sourceTree = "<group>"; };
+		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
+		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C0E1EA8BA940018A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */,
+				C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */,
+				C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,8 +364,10 @@
 			files = (
 				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
 				C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */,
+				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
+				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
 				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
 				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
