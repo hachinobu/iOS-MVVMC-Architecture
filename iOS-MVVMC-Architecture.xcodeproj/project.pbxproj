@@ -15,6 +15,9 @@
 		ADF5D4181EC1FD04009E9F60 /* AccountList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF5D4171EC1FD04009E9F60 /* AccountList.storyboard */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
+		C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC31EC32BF8008E55C7 /* Presentable.swift */; };
+		C2577AC61EC32C89008E55C7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC51EC32C89008E55C7 /* Router.swift */; };
+		C2577AC81EC33235008E55C7 /* RouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC71EC33235008E55C7 /* RouterImpl.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
 		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
@@ -57,6 +60,9 @@
 		BBF18F7CBAF7FA627BF6CFEC /* Pods-iOS-MVVMC-Architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.release.xcconfig"; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
+		C2577AC31EC32BF8008E55C7 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		C2577AC51EC32C89008E55C7 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C2577AC71EC33235008E55C7 /* RouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterImpl.swift; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C0E1EA8BA940018A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 		ADF5D40D1EC1F711009E9F60 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				C2577AC21EC32B94008E55C7 /* Router */,
 				ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */,
 				ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */,
 				ADF5D4121EC1F9F3009E9F60 /* AccountListCorodinator.swift */,
@@ -135,6 +142,16 @@
 				ADF5D4171EC1FD04009E9F60 /* AccountList.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C2577AC21EC32B94008E55C7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C2577AC31EC32BF8008E55C7 /* Presentable.swift */,
+				C2577AC51EC32C89008E55C7 /* Router.swift */,
+				C2577AC71EC33235008E55C7 /* RouterImpl.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		C27C6C001EA8BA940018A423 = {
@@ -400,12 +417,15 @@
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
 				ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */,
 				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
+				C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
 				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
 				C2814A751EAE124600A11462 /* User.swift in Sources */,
 				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
+				C2577AC81EC33235008E55C7 /* RouterImpl.swift in Sources */,
 				ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */,
 				C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */,
+				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
 				C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */,
 				C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */,
