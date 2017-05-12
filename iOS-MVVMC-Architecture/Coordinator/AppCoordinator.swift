@@ -8,20 +8,25 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: BaseCoordinator {
 
-    fileprivate let ACCOUNT_LIST_KEY = "AccountList"
-    fileprivate let HOME_TIMELINE = "HomeTimeLine"
+    private let coordinatorFactory: CoordinatorFactory
+    private let router: Router
     
-    var window: UIWindow
-    var coordinators: [String: Coordinator] = [:]
-    
-    init(window: UIWindow) {
-        self.window = window
+    init(router: Router, coordinatorFactory: CoordinatorFactory) {
+        self.router = router
+        self.coordinatorFactory = coordinatorFactory
     }
     
     func start() {
-        
+        runMainTabbarFlow()
+    }
+    
+    private func runMainTabbarFlow() {
+        let (presentable, coordinator) = coordinatorFactory.generateTabbarCoordinator()
+        addDependency(coordinator: coordinator)
+        router.setRoot(presentable: presentable, hideBar: true)
+        coordinator.start()
     }
     
 }

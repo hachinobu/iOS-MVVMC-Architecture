@@ -11,3 +11,11 @@ import UIKit
 protocol Coordinator: class {
     func start()
 }
+
+extension Coordinator {
+    
+    func start() {
+        
+    }
+    
+}

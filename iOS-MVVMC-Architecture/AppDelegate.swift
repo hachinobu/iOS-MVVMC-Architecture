@@ -13,9 +13,18 @@ import RxSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private lazy var rootController: UINavigationController = UINavigationController()
+    private lazy var appCoordinator: AppCoordinator = {
+        return AppCoordinator(router: RouterImpl(rootController: self.rootController), coordinatorFactory: CoordinatorFactoryImpl())
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow()
+        window?.rootViewController = rootController
+        appCoordinator.start()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

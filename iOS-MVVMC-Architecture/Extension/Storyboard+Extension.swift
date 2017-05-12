@@ -10,8 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     
-    func instantiateViewController<T: UIViewController>(withType type: T) -> T where T: ReusableViewControllerProtocol {
-        return instantiateViewController(withIdentifier: T.storyboardIdentifier) as! T
+    static func instantiateViewController<T: UIViewController>(withType type: T.Type) -> T where T: ReusableViewControllerProtocol {
+        return UIStoryboard().instantiateViewController(withIdentifier: T.storyboardIdentifier) as! T
     }
     
 }
