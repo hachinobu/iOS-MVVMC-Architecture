@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = HomeTimeLineViewModel(viewDidLoad: rx.viewWillAppear.asDriver())
+//        viewModel = HomeTimeLineViewModel(viewWillAppear: rx.viewWillAppear.asDriver())
         
         viewModel.authError
             .filter { $0 != nil }

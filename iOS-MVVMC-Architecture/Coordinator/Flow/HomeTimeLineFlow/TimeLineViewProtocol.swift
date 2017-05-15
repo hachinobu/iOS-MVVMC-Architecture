@@ -10,6 +10,6 @@ import UIKit
 import RxSwift
 
 protocol TimeLineViewProtocol {
-    var viewModel: HomeTimeLineViewModel! { get set }
+    var viewModel: TimeLineViewModel! { get set }
     var selectedItem: Observable<String> { get }
 }

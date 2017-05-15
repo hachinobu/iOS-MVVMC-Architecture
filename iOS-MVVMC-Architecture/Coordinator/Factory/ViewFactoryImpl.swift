@@ -10,7 +10,7 @@ import UIKit
 
 final class ViewFactoryImpl: HomeTimeLineViewFactory {
     
-    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable {
+    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable & ViewLifeCycle {
         return UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
     }
     

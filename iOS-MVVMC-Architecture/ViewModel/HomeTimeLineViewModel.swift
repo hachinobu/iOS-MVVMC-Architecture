@@ -12,7 +12,7 @@ import RxCocoa
 import Accounts
 import Action
 
-class HomeTimeLineViewModel {
+final class HomeTimeLineViewModel: TimeLineViewModel {
     
     private let bag = DisposeBag()
     
@@ -69,13 +69,6 @@ class HomeTimeLineViewModel {
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
         
-    }
-    
-    func bindViewWillAppear(viewWillAppear: Driver<Void>) {
-        viewWillAppear.asObservable()
-            .map { 1 }
-            .bind(to: fetchAction.inputs)
-            .addDisposableTo(bag)
     }
     
 }

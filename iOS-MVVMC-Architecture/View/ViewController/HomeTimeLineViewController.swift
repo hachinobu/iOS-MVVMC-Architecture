@@ -9,10 +9,10 @@
 import UIKit
 import RxSwift
 
-class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol {
-
+class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol, ViewLifeCycle {
+    
     let bag = DisposeBag()
-    var viewModel: HomeTimeLineViewModel!
+    var viewModel: TimeLineViewModel!
     
     private var selectedItemObserver = PublishSubject<String>()
     lazy var selectedItem: Observable<String> = {

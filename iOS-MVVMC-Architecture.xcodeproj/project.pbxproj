@@ -30,6 +30,8 @@
 		C2577AE51EC5C663008E55C7 /* HomeTimeLineViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AE41EC5C663008E55C7 /* HomeTimeLineViewFactory.swift */; };
 		C2577AE71EC5C6C5008E55C7 /* ViewFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AE61EC5C6C5008E55C7 /* ViewFactoryImpl.swift */; };
 		C2577AE91EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */; };
+		C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */; };
+		C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
 		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
@@ -87,6 +89,8 @@
 		C2577AE41EC5C663008E55C7 /* HomeTimeLineViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewFactory.swift; sourceTree = "<group>"; };
 		C2577AE61EC5C6C5008E55C7 /* ViewFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFactoryImpl.swift; sourceTree = "<group>"; };
 		C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineCoordinator.swift; sourceTree = "<group>"; };
+		C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ViewLifeCycle.swift"; sourceTree = "<group>"; };
+		C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C0E1EA8BA940018A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */,
 				C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */,
 				C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */,
+				C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */,
+				C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C2577AD41EC570B4008E55C7 /* DependencyCoordinatorProtocol.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
+				C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
 				ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */,
@@ -517,6 +524,7 @@
 				C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */,
 				C2577AD71EC571F3008E55C7 /* CoordinatorFactory.swift in Sources */,
 				C27C6C341EA8DFEE0018A423 /* HomeTimelineRequest.swift in Sources */,
+				C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */,
 				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
 				C2577AD21EC5700A008E55C7 /* TabbarCoordinator.swift in Sources */,
 				C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */,
