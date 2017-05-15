@@ -32,6 +32,8 @@
 		C2577AE91EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */; };
 		C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */; };
 		C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */; };
+		C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */; };
+		C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
 		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineCoordinator.swift; sourceTree = "<group>"; };
 		C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ViewLifeCycle.swift"; sourceTree = "<group>"; };
 		C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
+		C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineTweetCell.swift; sourceTree = "<group>"; };
+		C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineTweetCell.xib; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C0E1EA8BA940018A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,15 @@
 			path = HomeTimeLineFlow;
 			sourceTree = "<group>";
 		};
+		C2577AF01EC9BBAD008E55C7 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */,
+				C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		C27C6C001EA8BA940018A423 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +315,7 @@
 		C27C6C2D1EA8BB520018A423 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2577AF01EC9BBAD008E55C7 /* TableViewCell */,
 				C2577ADA1EC572C2008E55C7 /* ViewController */,
 				ADF5D4161EC1FCDD009E9F60 /* Storyboard */,
 			);
@@ -423,6 +437,7 @@
 			files = (
 				C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */,
 				C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */,
+				C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */,
 				C2577ADF1EC5B99B008E55C7 /* HomeTimeLineViewController.storyboard in Resources */,
 				C2577ACA1EC45DB7008E55C7 /* TabbarController.storyboard in Resources */,
 				C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */,
@@ -497,6 +512,7 @@
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C2577AD41EC570B4008E55C7 /* DependencyCoordinatorProtocol.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
+				C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */,
 				C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
