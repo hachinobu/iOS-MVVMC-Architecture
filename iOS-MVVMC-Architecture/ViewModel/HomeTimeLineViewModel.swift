@@ -54,7 +54,7 @@ class HomeTimeLineViewModel {
         return self.authTwitter.account
     }()
     
-    init(viewDidLoad: Driver<Void>) {
+    init(viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
         fetchAction = Action { page in
@@ -64,13 +64,18 @@ class HomeTimeLineViewModel {
                 .shareReplayLatestWhileConnected()
         }
         
-        viewDidLoad.asObservable()
+        viewWillAppear.asObservable()
             .map { 1 }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
         
-        
     }
     
+    func bindViewWillAppear(viewWillAppear: Driver<Void>) {
+        viewWillAppear.asObservable()
+            .map { 1 }
+            .bind(to: fetchAction.inputs)
+            .addDisposableTo(bag)
+    }
     
 }

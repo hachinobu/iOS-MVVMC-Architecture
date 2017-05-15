@@ -29,11 +29,18 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
     
     private func presentHomeTimeLine() {
         
-        let homeTimeLineView = viewFactory.generateHomeTimeLineView()
+        var homeTimeLineView = viewFactory.generateHomeTimeLineView()
+        let viewWillAppear = (homeTimeLineView as! UIViewController).rx.viewWillAppear.asDriver()
+        homeTimeLineView.viewModel = HomeTimeLineViewModel(viewWillAppear: viewWillAppear)
         homeTimeLineView.selectedItem.subscribe { [weak self] item in
             print(item)
+            self?.showDetail()
         }.addDisposableTo(bag)
         router.setRoot(presentable: homeTimeLineView, hideBar: false)
+        
+    }
+    
+    private func showDetail() {
         
     }
     
