@@ -18,7 +18,7 @@ final class AppCoordinator: BaseCoordinator {
         self.coordinatorFactory = coordinatorFactory
     }
     
-    func start() {
+    override func start() {
         runMainTabbarFlow()
     }
     

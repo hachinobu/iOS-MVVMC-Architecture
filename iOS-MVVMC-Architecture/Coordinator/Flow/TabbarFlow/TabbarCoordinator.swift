@@ -21,7 +21,7 @@ class TabbarCoordinator: BaseCoordinator {
         self.coordinatorFactory = coordinatorFactory
     }
     
-    func start() {
+    override func start() {
         
         tabbarView.loadTabbarObservable.subscribe(onNext: { [unowned self] navigationController in
             self.runHomeTimeLineFlow(navigationController: navigationController)

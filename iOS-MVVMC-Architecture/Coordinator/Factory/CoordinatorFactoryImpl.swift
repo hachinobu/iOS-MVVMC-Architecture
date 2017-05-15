@@ -11,7 +11,7 @@ import UIKit
 final class CoordinatorFactoryImpl: CoordinatorFactory {
     
     func generateTabbarCoordinator() -> (presentable: Presentable?, coordinator: Coordinator) {
-        let tabbarController = UIStoryboard.instantiateViewController(withType: TabbarController.self)
+        let tabbarController = UIStoryboard.instantiateInitialViewController(withType: TabbarController.self)
         let tabbarCoordinator = TabbarCoordinator(tabbarView: tabbarController, coordinatorFactory: CoordinatorFactoryImpl())
         return (tabbarController, tabbarCoordinator)
     }

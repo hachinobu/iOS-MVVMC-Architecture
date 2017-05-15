@@ -11,7 +11,7 @@ import UIKit
 final class ViewFactoryImpl: HomeTimeLineViewFactory {
     
     func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable {
-        return UIStoryboard.instantiateViewController(withType: HomeTimeLineViewController.self)
+        return UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
     }
     
 }

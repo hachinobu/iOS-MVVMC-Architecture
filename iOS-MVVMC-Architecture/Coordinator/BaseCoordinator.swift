@@ -29,4 +29,9 @@ class BaseCoordinator: Coordinator, DependencyCoordinatorProtocol {
         childCoordinators.remove(at: index)
     }
     
+    func start() {
+        //Override前提
+        fatalError("Required Override")
+    }
+    
 }

@@ -49,8 +49,6 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
             selectHomeTimeLineTabObserver.onNext(navigationController)
         case .accountDetail:
             selectAccountDetailTabObserver.onNext(navigationController)
-        default:
-            break
         }
         
     }

@@ -11,7 +11,13 @@ import UIKit
 extension UIStoryboard {
     
     static func instantiateViewController<T: UIViewController>(withType type: T.Type) -> T where T: ReusableViewControllerProtocol {
-        return UIStoryboard().instantiateViewController(withIdentifier: T.storyboardIdentifier) as! T
+        let identifier = T.storyboardIdentifier
+        return UIStoryboard(name: identifier, bundle: nil).instantiateViewController(withIdentifier: T.storyboardIdentifier) as! T
     }
     
+    static func instantiateInitialViewController<T: UIViewController>(withType type: T.Type) -> T where T: ReusableViewControllerProtocol {
+        let identifier = T.storyboardIdentifier
+        return UIStoryboard(name: identifier, bundle: nil).instantiateInitialViewController() as! T
+    }
+        
 }

@@ -23,7 +23,7 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
         self.router = router
     }
     
-    func start() {
+    override func start() {
         presentHomeTimeLine()
     }
     
