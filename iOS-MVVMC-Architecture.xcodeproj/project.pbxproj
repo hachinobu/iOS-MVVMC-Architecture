@@ -35,8 +35,6 @@
 		C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */; };
 		C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
-		C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0E1EA8BA940018A423 /* ViewController.swift */; };
-		C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C101EA8BA940018A423 /* Main.storyboard */; };
 		C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C131EA8BA940018A423 /* Assets.xcassets */; };
 		C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */; };
 		C27C6C221EA8BA940018A423 /* iOS_MVVMC_ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C211EA8BA940018A423 /* iOS_MVVMC_ArchitectureTests.swift */; };
@@ -97,8 +95,6 @@
 		C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineTweetCell.xib; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C27C6C0E1EA8BA940018A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C27C6C111EA8BA940018A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C27C6C131EA8BA940018A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C27C6C161EA8BA940018A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C27C6C181EA8BA940018A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -276,8 +272,6 @@
 				C27C6C2D1EA8BB520018A423 /* View */,
 				C27C6C2C1EA8BB080018A423 /* Model */,
 				C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */,
-				C27C6C0E1EA8BA940018A423 /* ViewController.swift */,
-				C27C6C101EA8BA940018A423 /* Main.storyboard */,
 				C27C6C131EA8BA940018A423 /* Assets.xcassets */,
 				C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */,
 				C27C6C181EA8BA940018A423 /* Info.plist */,
@@ -440,7 +434,6 @@
 				C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */,
 				C2577ADF1EC5B99B008E55C7 /* HomeTimeLineViewController.storyboard in Resources */,
 				C2577ACA1EC45DB7008E55C7 /* TabbarController.storyboard in Resources */,
-				C27C6C121EA8BA940018A423 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
-				C27C6C0F1EA8BA940018A423 /* ViewController.swift in Sources */,
 				C2577AD91EC5725C008E55C7 /* CoordinatorFactoryImpl.swift in Sources */,
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C2577AD41EC570B4008E55C7 /* DependencyCoordinatorProtocol.swift in Sources */,
@@ -566,14 +558,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C27C6C101EA8BA940018A423 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C27C6C111EA8BA940018A423 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

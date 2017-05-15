@@ -40,19 +40,15 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         }
     }()
     
-    var authAccount: Driver<ACAccount> {
-        return authTwitter.currentAccount
-    }
+    lazy var authAccount: Driver<ACAccount> = {
+        return self.authTwitter.currentAccount
+    }()
     
     private let fetchAction: Action<Int, [Tweet]>
     
     private(set) var fetchActionTrigger = PublishSubject<Int>()
     
     private let authTwitter = AuthenticateTwitter.sharedInstance
-    
-    lazy var auth: Observable<AuthenticateTwitter.AuthStatus> = {
-        return self.authTwitter.account
-    }()
     
     init(viewWillAppear: Driver<Void>) {
         
