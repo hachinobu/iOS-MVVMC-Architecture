@@ -8,16 +8,19 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol, ViewLifeCycle {
     
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!
     
-    private var selectedItemObserver = PublishSubject<String>()
-    lazy var selectedItem: Observable<String> = {
+    private var selectedItemObserver = PublishSubject<Tweet>()
+    lazy var selectedItem: Observable<Tweet> = {
         return self.selectedItemObserver.asObservable()
     }()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +46,30 @@ class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol, ViewLi
                 print(error)
             }).addDisposableTo(bag)
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        //TableView Setting
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(withType: TimeLineTweetCell.self)
+        
+        //TableViewCellのBind
+        viewModel.tweets.drive(tableView.rx.items) { [weak self] _, row, element in
+            guard let weakSelf = self else { return UITableViewCell() }
+            let cell = weakSelf.tableView.dequeueReusableCell(forIndexPath: IndexPath(row: row, section: 0)) as TimeLineTweetCell
+            return cell
+        }.addDisposableTo(bag)
+        
+        //TableViewCellタップ時に対象のTweetを知らせる
+        tableView.rx.modelSelected(Tweet.self).asDriver()
+            .drive(selectedItemObserver)
+            .addDisposableTo(bag)
+        
+//        tableView.rx.itemSelected.asDriver()
+//            .withLatestFrom(viewModel.tweets) { (indexPath, tweets) -> Tweet in
+//                return tweets[indexPath.row]
+//            }.drive(selectedItemObserver)
+//            .addDisposableTo(bag)
+        
+        
     }
     
 }

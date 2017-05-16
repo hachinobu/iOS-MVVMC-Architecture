@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import RxSwift
+import Kingfisher
 
-class TimeLineTweetCell: UITableViewCell {
+protocol TimeLineCellViewModel: class {
+    
+    var userName: PublishSubject<String> { get }
+    var screenName: PublishSubject<String> { get }
+    var body: PublishSubject<String> { get }
+    var profileURL: PublishSubject<URL> { get }
+    
+}
 
+final class TimeLineTweetCell: UITableViewCell {
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        iconImageView.layer.cornerRadius = 4.0
     }
 
 }

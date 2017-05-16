@@ -15,10 +15,10 @@ enum ValueObjectTranslatorError: Error {
 
 struct ValueObjectTranslator<ValueObject>: Translator {
     
-    public typealias Input = (HTTPURLResponse, Data?)
-    public typealias Output = ValueObject
+    typealias Input = (HTTPURLResponse, Data?)
+    typealias Output = ValueObject
     
-    fileprivate let _translate: (Input) throws -> Output
+    let _translate: (Input) throws -> Output
     
     init<T>(translator: T) where T: Translator, Input == T.Input, Output == T.Output {
         _translate = translator.translate

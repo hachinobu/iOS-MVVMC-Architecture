@@ -31,8 +31,8 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
         
         var homeTimeLineView = viewFactory.generateHomeTimeLineView()
         homeTimeLineView.viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.viewWillAppear.asDriver())
-        homeTimeLineView.selectedItem.subscribe { [weak self] item in
-            print(item)
+        homeTimeLineView.selectedItem.subscribe { [weak self] tweet in
+            print(tweet)
             self?.showDetail()
         }.addDisposableTo(bag)
         router.setRoot(presentable: homeTimeLineView, hideBar: false)

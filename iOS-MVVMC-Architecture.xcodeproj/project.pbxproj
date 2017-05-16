@@ -34,6 +34,11 @@
 		C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */; };
 		C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */; };
 		C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */; };
+		C2577AF61ECAA270008E55C7 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF51ECAA270008E55C7 /* NibLoadableView.swift */; };
+		C2577AF81ECAA35A008E55C7 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF71ECAA35A008E55C7 /* ReusableView.swift */; };
+		C2577AFA1ECAA3E5008E55C7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF91ECAA3E5008E55C7 /* UITableView+Extension.swift */; };
+		C2577AFC1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */; };
+		C2577AFE1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C131EA8BA940018A423 /* Assets.xcassets */; };
 		C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */; };
@@ -93,6 +98,11 @@
 		C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		C2577AF11EC9BBF8008E55C7 /* TimeLineTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineTweetCell.swift; sourceTree = "<group>"; };
 		C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineTweetCell.xib; sourceTree = "<group>"; };
+		C2577AF51ECAA270008E55C7 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		C2577AF71ECAA35A008E55C7 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		C2577AF91ECAA3E5008E55C7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineCellViewModel.swift; sourceTree = "<group>"; };
+		C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewModelTranslator.swift; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C131EA8BA940018A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +160,9 @@
 				C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */,
 				C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */,
 				C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */,
+				C2577AF51ECAA270008E55C7 /* NibLoadableView.swift */,
+				C2577AF71ECAA35A008E55C7 /* ReusableView.swift */,
+				C2577AF91ECAA3E5008E55C7 /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -302,6 +315,7 @@
 				C2814A861EAF473C00A11462 /* NetworkValidator.swift */,
 				C2814A881EAF476200A11462 /* Validator.swift */,
 				C2814A7C1EAE1FDA00A11462 /* ValueObjectTranslator.swift */,
+				C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +335,7 @@
 			children = (
 				C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */,
 				C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */,
+				C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -506,16 +521,20 @@
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */,
 				C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */,
+				C2577AFA1ECAA3E5008E55C7 /* UITableView+Extension.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
 				ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */,
 				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
+				C2577AFC1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift in Sources */,
 				C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */,
 				C2577AE11EC5BA16008E55C7 /* HomeTimeLineViewController.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
+				C2577AF61ECAA270008E55C7 /* NibLoadableView.swift in Sources */,
 				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
 				C2577ADC1EC5731A008E55C7 /* TabbarController.swift in Sources */,
 				C2577AE71EC5C6C5008E55C7 /* ViewFactoryImpl.swift in Sources */,
+				C2577AFE1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift in Sources */,
 				C2814A751EAE124600A11462 /* User.swift in Sources */,
 				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
 				C2577AC81EC33235008E55C7 /* RouterImpl.swift in Sources */,
@@ -531,6 +550,7 @@
 				C2577AE31EC5C253008E55C7 /* TimeLineViewProtocol.swift in Sources */,
 				C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */,
 				C2577AD71EC571F3008E55C7 /* CoordinatorFactory.swift in Sources */,
+				C2577AF81ECAA35A008E55C7 /* ReusableView.swift in Sources */,
 				C27C6C341EA8DFEE0018A423 /* HomeTimelineRequest.swift in Sources */,
 				C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */,
 				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
