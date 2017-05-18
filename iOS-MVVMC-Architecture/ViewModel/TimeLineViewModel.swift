@@ -15,7 +15,7 @@ protocol TimeLineViewModel: class {
     
     var authStatus: Driver<AuthenticateTwitter.AuthStatus> { get }
     var authError: Driver<Error?> { get }
-    var tweets: Driver<[Tweet]> { get }
+    var tweets: Driver<[TimeLineCellViewModel]> { get }
     var error: Driver<Error> { get }
     var authAccount: Driver<ACAccount> { get }
     

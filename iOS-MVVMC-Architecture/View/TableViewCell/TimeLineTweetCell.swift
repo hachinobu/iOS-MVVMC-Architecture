@@ -12,10 +12,10 @@ import Kingfisher
 
 protocol TimeLineCellViewModel: class {
     
-    var userName: PublishSubject<String> { get }
-    var screenName: PublishSubject<String> { get }
-    var body: PublishSubject<String> { get }
-    var profileURL: PublishSubject<URL> { get }
+    var userName: Observable<String?> { get }
+    var screenName: Observable<String?> { get }
+    var body: Observable<String?> { get }
+    var profileURL: Observable<URL?> { get }
     
 }
 
@@ -26,9 +26,16 @@ final class TimeLineTweetCell: UITableViewCell {
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     
+    var bag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         iconImageView.layer.cornerRadius = 4.0
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = DisposeBag()
     }
 
 }

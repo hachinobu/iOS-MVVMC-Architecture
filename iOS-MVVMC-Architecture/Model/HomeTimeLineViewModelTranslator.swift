@@ -12,19 +12,15 @@ struct HomeTimeLineViewModelTranslator: Translator {
     
     func translate(_ input: Tweet) throws -> TimeLineCellViewModel {
         
-        let viewModel = HomeTimeLineCellViewModel()
-        let userName = input.user.name 
-        viewModel.userName.onNext(userName)
-        
+        let userName = input.user.name
         let screenName = input.user.screenName
-        viewModel.screenName.onNext(screenName)
-        
         let body = input.text
-        viewModel.screenName.onNext(body)
+        let profileURL = URL(string: input.user.profileImageHttpsUrl)
         
-        let profileURL = URL(fileURLWithPath: input.user.profileImageHttpsUrl)
-        viewModel.profileURL.onNext(profileURL)
-        
+        let viewModel = HomeTimeLineCellViewModel(userName: userName,
+                                                  screenName: screenName,
+                                                  body: body,
+                                                  profileURL: profileURL)
         return viewModel
         
     }

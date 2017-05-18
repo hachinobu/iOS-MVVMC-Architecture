@@ -24,7 +24,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         return self.authTwitter.authError
     }()
     
-    lazy var tweets: Driver<[Tweet]> = {
+    lazy var tweets: Driver<[TimeLineCellViewModel]> = {
         return self.fetchAction.elements.asDriver(onErrorJustReturn: [])
     }()
     
@@ -44,7 +44,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         return self.authTwitter.currentAccount
     }()
     
-    private let fetchAction: Action<Int, [Tweet]>
+    private let fetchAction: Action<Int, [TimeLineCellViewModel]>
     
     private(set) var fetchActionTrigger = PublishSubject<Int>()
     
@@ -57,6 +57,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
             account
                 .map { HomeTimelineRequest(account: $0, parameters: [:]) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
+                .map { try $0.map(HomeTimeLineViewModelTranslator()) }
                 .shareReplayLatestWhileConnected()
         }
         
