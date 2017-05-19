@@ -45,9 +45,6 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     }()
     
     private let fetchAction: Action<Int, [TimeLineCellViewModel]>
-    
-    private(set) var fetchActionTrigger = PublishSubject<Int>()
-    
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
     init(viewWillAppear: Driver<Void>) {
@@ -62,6 +59,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         }
         
         viewWillAppear.asObservable()
+            .take(1)
             .map { 1 }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)

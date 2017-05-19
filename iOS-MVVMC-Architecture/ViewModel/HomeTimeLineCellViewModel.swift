@@ -11,6 +11,16 @@ import RxSwift
 
 final class HomeTimeLineCellViewModel: TimeLineCellViewModel {
     
+    private let idObserver = Variable<String?>(nil)
+    lazy var id: Observable<String?> = {
+        return self.idObserver.asObservable()
+    }()
+    
+    private let userIdObserver = Variable<String?>(nil)
+    lazy var userId: Observable<String?> = {
+        return self.userIdObserver.asObservable()
+    }()
+    
     private let userNameObserver = Variable<String?>(nil)
     lazy var userName: Observable<String?> = {
         return self.userNameObserver.asObservable()
@@ -31,7 +41,9 @@ final class HomeTimeLineCellViewModel: TimeLineCellViewModel {
         return self.profileURLObserver.asObservable()
     }()
     
-    init(userName: String?, screenName: String?, body: String?, profileURL: URL?) {
+    init(id: String?, userId: String?, userName: String?, screenName: String?, body: String?, profileURL: URL?) {
+        idObserver.value = id
+        userIdObserver.value = userId
         userNameObserver.value = userName
         screenNameObserver.value = screenName
         bodyObserver.value = body

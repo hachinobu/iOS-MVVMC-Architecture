@@ -30,7 +30,8 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
     private func presentHomeTimeLine() {
         
         var homeTimeLineView = viewFactory.generateHomeTimeLineView()
-        homeTimeLineView.viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.viewWillAppear.asDriver())
+        let viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.viewWillAppear.asDriver())
+        homeTimeLineView.viewModel = viewModel
         homeTimeLineView.selectedItem.subscribe { [weak self] tweet in
             print(tweet)
             self?.showDetail()

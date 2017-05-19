@@ -11,5 +11,5 @@ import RxSwift
 
 protocol TimeLineViewProtocol {
     var viewModel: TimeLineViewModel! { get set }
-    var selectedItem: Observable<Tweet> { get }
+    var selectedItem: Observable<String> { get }
 }

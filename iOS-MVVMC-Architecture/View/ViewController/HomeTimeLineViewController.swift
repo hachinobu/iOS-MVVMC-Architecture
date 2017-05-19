@@ -16,8 +16,8 @@ class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol, ViewLi
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!
     
-    fileprivate var selectedItemObserver = PublishSubject<Tweet>()
-    lazy var selectedItem: Observable<Tweet> = {
+    fileprivate var selectedItemObserver = PublishSubject<String>()
+    lazy var selectedItem: Observable<String> = {
         return self.selectedItemObserver.asObservable()
     }()
     
@@ -86,8 +86,16 @@ extension HomeTimeLineViewController {
             }.addDisposableTo(bag)
         
         //TableViewCellタップ時に対象のTweetを知らせる
-        tableView.rx.modelSelected(Tweet.self).asDriver()
-            .drive(selectedItemObserver)
+        tableView.rx.modelSelected(TimeLineCellViewModel.self)
+            .do(onNext: { [weak self] _ in
+                if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
+                    self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }
+            }).flatMap { model -> Observable<String?> in
+                return model.id
+            }.filter { $0 != nil }
+            .map { $0! }
+            .bind(to: selectedItemObserver)
             .addDisposableTo(bag)
         
         //        tableView.rx.itemSelected.asDriver()
