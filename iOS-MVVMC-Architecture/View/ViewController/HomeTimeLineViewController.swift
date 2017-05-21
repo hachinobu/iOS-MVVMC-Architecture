@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol, ViewLifeCycle {
+class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol {
     
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!

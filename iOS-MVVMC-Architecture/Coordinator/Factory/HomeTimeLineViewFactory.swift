@@ -9,5 +9,5 @@
 import UIKit
 
 protocol HomeTimeLineViewFactory {
-    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable & ViewLifeCycle
+    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable
 }
