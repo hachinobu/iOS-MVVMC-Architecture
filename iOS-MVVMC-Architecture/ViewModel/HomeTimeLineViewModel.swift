@@ -70,7 +70,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
 ////            .map { 1 }
 ////            .bind(to: fetchAction.inputs)
 ////            .addDisposableTo(bag)
-//    
+//
 //    }
     
     init(viewWillAppear: Driver<Void>) {
