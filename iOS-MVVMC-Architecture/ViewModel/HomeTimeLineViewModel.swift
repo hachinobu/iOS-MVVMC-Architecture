@@ -47,6 +47,32 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     private let fetchAction: Action<Int, [TimeLineCellViewModel]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
+//    init<Request: TwitterRequestProtocol, TranslatorType: Translator>(request: Request, translator: TranslatorType) where Request.Response == [Element], TranslatorType.Input == Element, TranslatorType.Output == TimeLineCellViewModel {
+//        
+//        let account = authTwitter.currentAccount.asObservable()
+//        fetchAction = Action { page in
+//            
+//            var request = request
+//            request.parameters["page"] = page
+//            return TwitterApiClient.execute(request: request)
+//                .map { try $0.map(translator) }
+//                .shareReplayLatestWhileConnected()
+//            
+//            account
+//                .map { HomeTimelineRequest(account: $0, parameters: [:]) }
+//                .flatMap { TwitterApiClient.execute(request: $0) }
+//                .map { try $0.map(HomeTimeLineViewModelTranslator()) }
+//                .shareReplayLatestWhileConnected()
+//        }
+//        
+////        viewWillAppear.asObservable()
+////            .take(1)
+////            .map { 1 }
+////            .bind(to: fetchAction.inputs)
+////            .addDisposableTo(bag)
+//    
+//    }
+    
     init(viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
