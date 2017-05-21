@@ -15,7 +15,7 @@ struct HomeTimeLineViewModelTranslator: Translator {
         let id = input.idStr
         let userId = input.user.idStr
         let userName = input.user.name
-        let screenName = input.user.screenName
+        let screenName = "@" + input.user.screenName
         let body = input.text
         let profileURL = URL(string: input.user.profileImageHttpsUrl)
         
