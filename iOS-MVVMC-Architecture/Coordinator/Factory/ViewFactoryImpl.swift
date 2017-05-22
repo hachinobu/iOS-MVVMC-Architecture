@@ -17,4 +17,11 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory {
         return homeTimeLineView
     }
     
+    func generateTweetDetailView(tweetId: String) -> TweetDetailViewProtocol & Presentable {
+        let tweetDetailView = UIStoryboard.instantiateInitialViewController(withType: TweetDetailViewController.self)
+        let viewModel = TweetDetailViewModel(tweetId: tweetId, viewWillAppear: tweetDetailView.rx.viewWillAppear.asDriver())
+        tweetDetailView.viewModel = viewModel
+        return tweetDetailView
+    }
+    
 }

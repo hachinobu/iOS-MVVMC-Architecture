@@ -25,6 +25,7 @@ protocol TweetDetailCellViewModelProtocol: class {
 class TweetDetailCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!

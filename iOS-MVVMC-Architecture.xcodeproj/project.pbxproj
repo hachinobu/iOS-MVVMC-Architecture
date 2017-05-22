@@ -20,6 +20,8 @@
 		ADF5D4261ED1BC30009E9F60 /* TweetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4251ED1BC30009E9F60 /* TweetDetailViewModel.swift */; };
 		ADF5D4281ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4271ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift */; };
 		ADF5D42A1ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4291ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift */; };
+		C22718781ED27BF700AB10CF /* TweetDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22718771ED27BF700AB10CF /* TweetDetailViewProtocol.swift */; };
+		C227187A1ED2BAF800AB10CF /* UITableViewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22718791ED2BAF800AB10CF /* UITableViewController+RxExtension.swift */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC31EC32BF8008E55C7 /* Presentable.swift */; };
@@ -93,6 +95,8 @@
 		ADF5D4271ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailCellViewModel.swift; sourceTree = "<group>"; };
 		ADF5D4291ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailCellViewModelTranslator.swift; sourceTree = "<group>"; };
 		BBF18F7CBAF7FA627BF6CFEC /* Pods-iOS-MVVMC-Architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.release.xcconfig"; sourceTree = "<group>"; };
+		C22718771ED27BF700AB10CF /* TweetDetailViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewProtocol.swift; sourceTree = "<group>"; };
+		C22718791ED2BAF800AB10CF /* UITableViewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+RxExtension.swift"; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C2577AC31EC32BF8008E55C7 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */,
+				C22718791ED2BAF800AB10CF /* UITableViewController+RxExtension.swift */,
 				C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */,
 				C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */,
 				C2577AEC1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift */,
@@ -263,6 +268,7 @@
 			children = (
 				C2577AE21EC5C253008E55C7 /* TimeLineViewProtocol.swift */,
 				C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */,
+				C22718771ED27BF700AB10CF /* TweetDetailViewProtocol.swift */,
 			);
 			path = HomeTimeLineFlow;
 			sourceTree = "<group>";
@@ -588,8 +594,10 @@
 				C2577AF81ECAA35A008E55C7 /* ReusableView.swift in Sources */,
 				ADF5D41E1ED16E0A009E9F60 /* TweetDetailCell.swift in Sources */,
 				C27C6C341EA8DFEE0018A423 /* HomeTimelineRequest.swift in Sources */,
+				C22718781ED27BF700AB10CF /* TweetDetailViewProtocol.swift in Sources */,
 				C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */,
 				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
+				C227187A1ED2BAF800AB10CF /* UITableViewController+RxExtension.swift in Sources */,
 				C2577AD21EC5700A008E55C7 /* TabbarCoordinator.swift in Sources */,
 				C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */,
 			);

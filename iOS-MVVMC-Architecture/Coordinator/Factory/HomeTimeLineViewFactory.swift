@@ -10,4 +10,5 @@ import UIKit
 
 protocol HomeTimeLineViewFactory {
     func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable
+    func generateTweetDetailView(tweetId: String) -> TweetDetailViewProtocol & Presentable
 }

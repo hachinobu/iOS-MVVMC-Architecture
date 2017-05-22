@@ -24,8 +24,8 @@ final class TweetDetailViewModel: TweetDetailViewModelProtocol {
         return self.authTwitter.authError
     }()
     
-    lazy var tweet: Driver<TweetDetailCellViewModel?> = {
-        return self.fetchAction.elements.asDriver(onErrorJustReturn: nil)
+    lazy var tweets: Driver<[TweetDetailCellViewModel]> = {
+        return self.fetchAction.elements.asDriver(onErrorJustReturn: [])
     }()
     
     lazy var error: Driver<Error> = {
@@ -44,17 +44,18 @@ final class TweetDetailViewModel: TweetDetailViewModelProtocol {
         return self.authTwitter.currentAccount
     }()
     
-    private let fetchAction: Action<Int, TweetDetailCellViewModel?>
+    private let fetchAction: Action<Int, [TweetDetailCellViewModel]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
-    init(viewWillAppear: Driver<Void>) {
+    init(tweetId: String, viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
         fetchAction = Action { page in
             account
-                .map { TweetDetailRequest(account: $0, parameters: [:]) }
+                .map { TweetDetailRequest(account: $0, parameters: ["id": tweetId]) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .map { try TweetDetailCellViewModelTranslator().translate($0) }
+                .map { [$0] }
                 .shareReplayLatestWhileConnected()
         }
         

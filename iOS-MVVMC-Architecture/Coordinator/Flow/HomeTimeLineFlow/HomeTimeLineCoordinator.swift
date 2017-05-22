@@ -34,12 +34,21 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
             self?.showDetail(tweetId: id)
         }).addDisposableTo(bag)
         
+        homeTimeLineView.reachedBottom.subscribe(onNext: { () in
+            print("reachedBottom")
+        }).addDisposableTo(bag)
+        
         router.setRoot(presentable: homeTimeLineView, hideBar: false)
         
     }
     
     private func showDetail(tweetId: String) {
+        let tweetDetailView = viewFactory.generateTweetDetailView(tweetId: tweetId)
+        tweetDetailView.selectedUser.subscribe(onNext: { id in
+            print(id)
+        }).addDisposableTo(bag)
         
+        router.push(presentable: tweetDetailView, animated: true, completion: nil)
     }
     
 }

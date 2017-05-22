@@ -15,7 +15,7 @@ protocol TweetDetailViewModelProtocol: class {
     
     var authStatus: Driver<AuthenticateTwitter.AuthStatus> { get }
     var authError: Driver<Error?> { get }
-    var tweet: Driver<TweetDetailCellViewModel?> { get }
+    var tweets: Driver<[TweetDetailCellViewModel]> { get }
     var error: Driver<Error> { get }
     var authAccount: Driver<ACAccount> { get }
     

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol {
+class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
     
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!
@@ -21,8 +21,10 @@ class HomeTimeLineViewController: UIViewController, TimeLineViewProtocol {
         return self.selectedItemObserver.asObservable()
     }()
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    lazy var reachedBottom: ControlEvent<Void> = {
+        return self.tableView.rx.reachedBottom
+    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -40,6 +42,8 @@ extension HomeTimeLineViewController {
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
+        tableView.dataSource = nil
+        tableView.delegate = nil
     }
     
     fileprivate func bindAuthStatus() {
