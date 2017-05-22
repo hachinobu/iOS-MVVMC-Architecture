@@ -19,4 +19,6 @@ protocol TimeLineViewModel: class {
     var error: Driver<Error> { get }
     var authAccount: Driver<ACAccount> { get }
     
+    func bindReachedBottom(reachedBottom: Driver<Void>)
+    
 }

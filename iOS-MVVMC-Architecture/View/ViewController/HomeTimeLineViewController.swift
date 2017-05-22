@@ -24,7 +24,9 @@ class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
     lazy var reachedBottom: ControlEvent<Void> = {
         return self.tableView.rx.reachedBottom
     }()
-        
+    
+    let triger = PublishSubject<String?>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -92,6 +94,7 @@ extension HomeTimeLineViewController {
         //TableViewCellタップ時に対象のTweetを知らせる
         tableView.rx.modelSelected(TimeLineCellViewModel.self)
             .do(onNext: { [weak self] _ in
+                self?.triger.onNext(nil)
                 if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }

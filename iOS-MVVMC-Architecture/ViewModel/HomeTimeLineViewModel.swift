@@ -44,7 +44,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         return self.authTwitter.currentAccount
     }()
     
-    private let fetchAction: Action<Int, [TimeLineCellViewModel]>
+    private let fetchAction: Action<String?, [TimeLineCellViewModel]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
 //    init<Request: TwitterRequestProtocol, TranslatorType: Translator>(request: Request, translator: TranslatorType) where Request.Response == [Element], TranslatorType.Input == Element, TranslatorType.Output == TimeLineCellViewModel {
@@ -76,20 +76,35 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     init(viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
-        fetchAction = Action { page in
-            account
-                .map { HomeTimelineRequest(account: $0, parameters: [:]) }
+        fetchAction = Action { sinceId in
+            let parameters = sinceId != nil ? ["since_id": sinceId!] : [:]
+            return account
+                .map { HomeTimelineRequest(account: $0, parameters: parameters) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .map { try $0.map(HomeTimeLineViewModelTranslator()) }
                 .shareReplayLatestWhileConnected()
+                .scan([]) {
+                    print("scan")
+                    return $0 + $1
+            }
         }
         
         viewWillAppear.asObservable()
             .take(1)
-            .map { 1 }
+            .map { "1" }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
                 
+    }
+    
+    func bindReachedBottom(reachedBottom: Driver<Void>) {
+        reachedBottom.asObservable()
+            .withLatestFrom(fetchAction.elements) { (_, elements) -> TimeLineCellViewModel? in
+                return elements.last
+            }.filter { $0 != nil }
+            .flatMap { (viewModel) -> Observable<String?> in
+                return viewModel!.id
+            }.bind(to: fetchAction.inputs).addDisposableTo(bag)
     }
     
 }
