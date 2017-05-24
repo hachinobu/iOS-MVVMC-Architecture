@@ -77,10 +77,12 @@ class AuthenticateTwitter {
     lazy var currentStatus: Driver<AuthStatus> = {
         return self.innerCurrentStatus.asDriver()
     }()
+    
     lazy var currentAccount: Driver<ACAccount> = {
-        return self.innerCurrentStatus.asDriver()
+        return self.fetchAccount()
             .filter { $0.isAuthenticated() }
             .map { $0.fetchAccount()! }
+            .asDriver(onErrorDriveWith: Driver.empty())
     }()
     
     private let innerAuthError = Variable<Error?>(nil)
