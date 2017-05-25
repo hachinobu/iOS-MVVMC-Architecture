@@ -29,6 +29,7 @@ class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.bindReachedBottom(reachedBottom: tableView.rx.reachedBottom.asDriver())
         setupUI()
         bindAuthStatus()
         bindTimeLineFetch()

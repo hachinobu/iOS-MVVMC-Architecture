@@ -90,11 +90,12 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         }
         
         viewWillAppear.asObservable()
-            .take(1)
+            .takeLast(1)
             .map { "1" }
-            .bind(to: fetchAction.inputs)
-            .addDisposableTo(bag)
-                
+            .subscribe(onNext: { [weak self] id in
+                self?.fetchAction.execute(id)
+            }).addDisposableTo(bag)
+        
     }
     
     func bindReachedBottom(reachedBottom: Driver<Void>) {

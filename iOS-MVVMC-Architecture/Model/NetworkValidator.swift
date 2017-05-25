@@ -16,6 +16,9 @@ struct NetworkValidator: Validator {
     
     func validate(_ input: (response: HTTPURLResponse, data: Data?)) throws -> Void {
         let statusCode = input.response.statusCode
+        if statusCode == 429 {
+            //RateLimit越え
+        }
         guard 200..<300 ~= statusCode else {
             throw NetworkValidatorError.APIError(statusCode)
         }
