@@ -90,7 +90,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         }
         
         viewWillAppear.asObservable()
-            .takeLast(1)
+            .take(1)
             .map { "1" }
             .subscribe(onNext: { [weak self] id in
                 self?.fetchAction.execute(id)
