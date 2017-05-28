@@ -25,17 +25,28 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     }()
     
     lazy var tweets: Driver<[TimeLineCellViewModel]> = {
+        
         return self.fetchAction.elements
-            .scan([Tweet]()) { currents, results -> [Tweet] in
-                if currents.isEmpty {
+            .withLatestFrom(self.fetchAction.inputs) { $0 }
+            .scan([Tweet]()) { currentElements, nextFetchInfo -> [Tweet] in
+                
+                let results = nextFetchInfo.0
+                let id: Int64? = nextFetchInfo.1
+                
+                if currentElements.isEmpty || id == nil {
                     return results
                 }
-                if let resultsLastId = results.last?.id, let currentsLastId = currents.last?.id,
-                    resultsLastId > currentsLastId {
-                    return currents + results
+                
+                if let id = id, let firstId = results.first?.id, id > firstId {
+                    return currentElements + results
                 }
-                return currents
-            }.map { try $0.map(HomeTimeLineViewModelTranslator()) }.asDriver(onErrorJustReturn: [])
+                
+                return currentElements
+                
+            }
+            .map { try $0.map(HomeTimeLineViewModelTranslator()) }
+            .asDriver(onErrorJustReturn: [])
+        
     }()
     
     lazy var error: Driver<Error> = {
@@ -91,21 +102,10 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         
         let account = authTwitter.currentAccount.asObservable()
         fetchAction = Action { sinceId in
-            let parameters = sinceId != nil ? ["since_id": sinceId!] : [:]
+            let parameters = sinceId != nil ? ["max_id": sinceId!.description] : [:]
             return account
                 .map { HomeTimelineRequest(account: $0, parameters: parameters) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
-//                .scan([Tweet]()) { currents, results -> [Tweet] in
-//                    if currents.isEmpty {
-//                        return results
-//                    }
-//                    if let resultsLastId = results.last?.id, let currentsLastId = currents.last?.id,
-//                        resultsLastId > currentsLastId {
-//                        return currents + results
-//                    }
-//                    return currents
-//                }
-//                .map { try $0.map(HomeTimeLineViewModelTranslator()) }
                 .shareReplayLatestWhileConnected()
         }
         
@@ -116,7 +116,6 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
                 self?.fetchAction.execute(id)
             }).addDisposableTo(bag)
         
-        
     }
     
     func bindReachedBottom(reachedBottom: Driver<Void>) {
@@ -126,7 +125,10 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
             .filter { !$0 }
             .withLatestFrom(fetchAction.elements) { $0.1.last }
             .filter { $0 != nil }
-            .map { $0!.id }
+            .map { tweet -> Int64 in
+                let id = tweet!.id - 1
+                return id
+            }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
         
