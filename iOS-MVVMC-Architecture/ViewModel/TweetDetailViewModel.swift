@@ -44,15 +44,15 @@ final class TweetDetailViewModel: TweetDetailViewModelProtocol {
         return self.authTwitter.currentAccount
     }()
     
-    private let fetchAction: Action<Int, [TweetDetailCellViewModel]>
+    private let fetchAction: Action<String, [TweetDetailCellViewModel]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
     init(tweetId: String, viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
-        fetchAction = Action { page in
+        fetchAction = Action { id in
             account
-                .map { TweetDetailRequest(account: $0, parameters: ["id": tweetId]) }
+                .map { TweetDetailRequest(account: $0, parameters: ["id": id]) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .map { try TweetDetailCellViewModelTranslator().translate($0) }
                 .map { [$0] }
@@ -61,7 +61,7 @@ final class TweetDetailViewModel: TweetDetailViewModelProtocol {
         
         viewWillAppear.asObservable()
             .take(1)
-            .map { 1 }
+            .map { tweetId }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)
         

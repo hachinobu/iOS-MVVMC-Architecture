@@ -12,8 +12,8 @@ struct HomeTimeLineViewModelTranslator: Translator {
     
     func translate(_ input: Tweet) throws -> TimeLineCellViewModel {
         
-        let id = input.idStr
-        let userId = input.user.idStr
+        let id = input.id
+        let userId = input.user.id
         let userName = input.user.name
         let screenName = "@" + input.user.screenName
         let body = input.text

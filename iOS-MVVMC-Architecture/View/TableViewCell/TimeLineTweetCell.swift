@@ -12,8 +12,8 @@ import Kingfisher
 
 protocol TimeLineCellViewModel: class {
     
-    var id: Observable<String?> { get }
-    var userId: Observable<String?> { get }
+    var id: Int64 { get }
+    var userId: Int { get }
     var userName: Observable<String?> { get }
     var screenName: Observable<String?> { get }
     var body: Observable<String?> { get }

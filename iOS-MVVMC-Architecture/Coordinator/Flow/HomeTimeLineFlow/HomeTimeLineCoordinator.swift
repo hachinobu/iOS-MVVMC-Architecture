@@ -30,13 +30,8 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
     private func presentHomeTimeLine() {
         
         let homeTimeLineView = viewFactory.generateHomeTimeLineView()
-//        homeTimeLineView.viewModel.bindReachedBottom(reachedBottom: homeTimeLineView.reachedBottom.asDriver())
-        homeTimeLineView.selectedItem.subscribe(onNext: { [weak self] id in
+        homeTimeLineView.selectedTweetId.subscribe(onNext: { [weak self] id in
             self?.showDetail(tweetId: id)
-        }).addDisposableTo(bag)
-        
-        homeTimeLineView.reachedBottom.subscribe(onNext: { _ in
-            print("reachedBottom")
         }).addDisposableTo(bag)
         
         router.setRoot(presentable: homeTimeLineView, hideBar: false)

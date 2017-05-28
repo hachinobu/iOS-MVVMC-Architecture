@@ -18,6 +18,7 @@ protocol TimeLineViewModel: class {
     var tweets: Driver<[TimeLineCellViewModel]> { get }
     var error: Driver<Error> { get }
     var authAccount: Driver<ACAccount> { get }
+    var loadingIndicatorAnimation: Driver<Bool> { get }
     
     func bindReachedBottom(reachedBottom: Driver<Void>)
     

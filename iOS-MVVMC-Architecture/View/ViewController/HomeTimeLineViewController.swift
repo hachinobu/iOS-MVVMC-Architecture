@@ -13,19 +13,20 @@ import Kingfisher
 
 class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
     
+    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!
     
-    fileprivate var selectedItemObserver = PublishSubject<String>()
-    lazy var selectedItem: Observable<String> = {
-        return self.selectedItemObserver.asObservable()
+    fileprivate var selectedTweetIdObserver = PublishSubject<String>()
+    lazy var selectedTweetId: Observable<String> = {
+        return self.selectedTweetIdObserver.asObservable()
     }()
     
     lazy var reachedBottom: ControlEvent<Void> = {
         return self.tableView.rx.reachedBottom
     }()
-    
-    let triger = PublishSubject<String?>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,10 @@ extension HomeTimeLineViewController {
     }
     
     fileprivate func bindTableView() {
+        
+        viewModel.loadingIndicatorAnimation.drive(loadingIndicator.rx.isAnimating).addDisposableTo(bag)
+        viewModel.loadingIndicatorAnimation.map { !$0 }.drive(loadingIndicator.rx.isHidden).addDisposableTo(bag)
+        
         //TableViewCellのBind
         viewModel.tweets.drive(tableView.rx.items) { [weak self] _, row, cellViewModel in
             guard let weakSelf = self else { return UITableViewCell() }
@@ -95,22 +100,16 @@ extension HomeTimeLineViewController {
         //TableViewCellタップ時に対象のTweetを知らせる
         tableView.rx.modelSelected(TimeLineCellViewModel.self)
             .do(onNext: { [weak self] _ in
-                self?.triger.onNext(nil)
                 if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }
-            }).flatMap { model -> Observable<String?> in
-                return model.id
-            }.filter { $0 != nil }
-            .map { $0! }
-            .bind(to: selectedItemObserver)
+            })
+            .map { model -> String in
+                return model.id.description
+            }
+            .bind(to: selectedTweetIdObserver)
             .addDisposableTo(bag)
         
-        //        tableView.rx.itemSelected.asDriver()
-        //            .withLatestFrom(viewModel.tweets) { (indexPath, tweets) -> Tweet in
-        //                return tweets[indexPath.row]
-        //            }.drive(selectedItemObserver)
-        //            .addDisposableTo(bag)
     }
     
     

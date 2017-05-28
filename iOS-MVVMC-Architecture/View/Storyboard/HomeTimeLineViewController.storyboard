@@ -17,9 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="XeT-Ij-PvE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-YA-RwK">
+                                    <rect key="frame" x="169" y="4" width="37" height="37"/>
+                                    <color key="color" red="0.4431372549" green="0.4941176471" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="YcL-YA-RwK" firstAttribute="centerY" secondItem="XeT-Ij-PvE" secondAttribute="centerY" id="Yi5-9m-y9v"/>
+                                <constraint firstItem="YcL-YA-RwK" firstAttribute="centerX" secondItem="XeT-Ij-PvE" secondAttribute="centerX" id="ger-Hy-YiL"/>
+                            </constraints>
+                        </view>
                     </tableView>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="YcL-YA-RwK" id="MG1-RP-RhZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPC-aL-e7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
