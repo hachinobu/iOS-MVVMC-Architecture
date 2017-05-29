@@ -68,7 +68,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     lazy var loadingIndicatorAnimation: Driver<Bool> = {
         return self.fetchAction.executing.shareReplayLatestWhileConnected().asDriver(onErrorJustReturn: false)
     }()
-    
+        
     private let fetchAction: Action<Int64?, [Tweet]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
@@ -115,6 +115,18 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
             .subscribe(onNext: { [weak self] id in
                 self?.fetchAction.execute(id)
             }).addDisposableTo(bag)
+        
+    }
+    
+    func bindRefresh(refresh: Driver<Void>) {
+        
+        refresh.asObservable()
+            .withLatestFrom(loadingIndicatorAnimation.asObservable()) { (_, isRefresh) -> Bool in
+                return isRefresh
+            }.filter { !$0 }
+            .map { _ in return nil }
+            .bind(to: fetchAction.inputs)
+            .addDisposableTo(bag)
         
     }
     

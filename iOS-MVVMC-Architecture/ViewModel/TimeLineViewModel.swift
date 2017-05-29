@@ -20,6 +20,7 @@ protocol TimeLineViewModel: class {
     var authAccount: Driver<ACAccount> { get }
     var loadingIndicatorAnimation: Driver<Bool> { get }
     
+    func bindRefresh(refresh: Driver<Void>)
     func bindReachedBottom(reachedBottom: Driver<Void>)
     
 }

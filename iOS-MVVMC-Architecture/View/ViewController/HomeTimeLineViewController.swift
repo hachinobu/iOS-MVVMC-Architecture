@@ -30,8 +30,9 @@ class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.bindReachedBottom(reachedBottom: tableView.rx.reachedBottom.asDriver())
         setupUI()
+        viewModel.bindRefresh(refresh: tableView.refreshControl!.rx.controlEvent(.valueChanged).asDriver())
+        viewModel.bindReachedBottom(reachedBottom: tableView.rx.reachedBottom.asDriver())
         bindAuthStatus()
         bindTimeLineFetch()
         bindTableView()
@@ -43,11 +44,12 @@ extension HomeTimeLineViewController {
     
     fileprivate func setupUI() {
         //TableView Setting
+        tableView.dataSource = nil
+        tableView.delegate = nil
+        tableView.refreshControl = UIRefreshControl()
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
-        tableView.dataSource = nil
-        tableView.delegate = nil
     }
     
     fileprivate func bindAuthStatus() {
@@ -77,8 +79,18 @@ extension HomeTimeLineViewController {
     
     fileprivate func bindTableView() {
         
-        viewModel.loadingIndicatorAnimation.drive(loadingIndicator.rx.isAnimating).addDisposableTo(bag)
-        viewModel.loadingIndicatorAnimation.map { !$0 }.drive(loadingIndicator.rx.isHidden).addDisposableTo(bag)
+        viewModel.tweets
+            .map { _ in false }
+            .drive(tableView.refreshControl!.rx.isRefreshing.asObserver())
+            .addDisposableTo(bag)
+        
+        viewModel.loadingIndicatorAnimation
+            .drive(loadingIndicator.rx.isAnimating)
+            .addDisposableTo(bag)
+        
+        viewModel.loadingIndicatorAnimation.map { !$0 }
+            .drive(loadingIndicator.rx.isHidden)
+            .addDisposableTo(bag)
         
         //TableViewCellのBind
         viewModel.tweets.drive(tableView.rx.items) { [weak self] _, row, cellViewModel in
