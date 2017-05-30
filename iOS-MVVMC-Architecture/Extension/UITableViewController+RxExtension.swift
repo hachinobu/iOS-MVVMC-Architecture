@@ -15,8 +15,8 @@ extension Reactive where Base: UITableView {
     var reachedBottom: ControlEvent<Void> {
         
         let lastCellObservable = base.rx.willDisplayCell.filter { [weak base] cell, indexPath -> Bool in
-            guard let strongBase = base else { return false }
-            let isLastCell = indexPath.row == strongBase.numberOfRows(inSection: indexPath.section) - 1
+            guard let base = base else { return false }
+            let isLastCell = indexPath.row == base.numberOfRows(inSection: indexPath.section) - 1
             return isLastCell
         }.map { _ in }
         

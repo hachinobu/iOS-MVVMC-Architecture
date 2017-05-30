@@ -32,12 +32,13 @@ final class TimeLineTweetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        iconImageView.layer.cornerRadius = 4.0
+        iconImageView.layer.cornerRadius = 8.0
+        iconImageView.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         bag = DisposeBag()
     }
-
+    
 }
