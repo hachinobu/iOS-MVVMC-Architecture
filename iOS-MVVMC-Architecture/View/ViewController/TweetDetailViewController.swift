@@ -43,10 +43,10 @@ extension TweetDetailViewController {
             
             guard let weakSelf = self else { return UITableViewCell() }
             let cell = weakSelf.tableView.dequeueReusableCell(forIndexPath: IndexPath(row: row, section: 0)) as TweetDetailCell
-            cellViewModel.userName.asDriver(onErrorJustReturn: nil).drive(cell.userNameLabel.rx.text).addDisposableTo(cell.bag)
-            cellViewModel.screenName.asDriver(onErrorJustReturn: nil).drive(cell.screenNameLabel.rx.text).addDisposableTo(cell.bag)
-            cellViewModel.body.asDriver(onErrorJustReturn: nil).drive(cell.bodyLabel.rx.text).addDisposableTo(cell.bag)
-            cellViewModel.profileURL.asDriver(onErrorJustReturn: nil).filter { $0 != nil }.drive(onNext: { [weak cell] url in
+            cellViewModel.userName.bind(to: cell.userNameLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.screenName.bind(to: cell.screenNameLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.body.bind(to: cell.bodyLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.profileURL.filter { $0 != nil }.subscribe(onNext: { [weak cell] url in
                 let imageURL = url!
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: imageURL.absoluteString)
                 cell?.iconImageView.kf.indicatorType = .activity
