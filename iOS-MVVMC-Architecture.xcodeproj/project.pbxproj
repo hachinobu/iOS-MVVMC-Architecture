@@ -24,6 +24,10 @@
 		C227187A1ED2BAF800AB10CF /* UITableViewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22718791ED2BAF800AB10CF /* UITableViewController+RxExtension.swift */; };
 		C227187D1ED6C1FC00AB10CF /* LoadingIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C227187C1ED6C1FC00AB10CF /* LoadingIndicatorView.xib */; };
 		C227187F1ED6C33300AB10CF /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227187E1ED6C33300AB10CF /* LoadingIndicatorView.swift */; };
+		C23B59091EE016B3005C77D3 /* UserTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B59081EE016B3005C77D3 /* UserTimeLineViewController.swift */; };
+		C23B590B1EE016DD005C77D3 /* UserTimeLineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23B590A1EE016DD005C77D3 /* UserTimeLineViewController.storyboard */; };
+		C23B590D1EE01A88005C77D3 /* UserTimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */; };
+		C23B590F1EE01B50005C77D3 /* UserTimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC31EC32BF8008E55C7 /* Presentable.swift */; };
@@ -101,6 +105,10 @@
 		C22718791ED2BAF800AB10CF /* UITableViewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+RxExtension.swift"; sourceTree = "<group>"; };
 		C227187C1ED6C1FC00AB10CF /* LoadingIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicatorView.xib; sourceTree = "<group>"; };
 		C227187E1ED6C33300AB10CF /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		C23B59081EE016B3005C77D3 /* UserTimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewController.swift; sourceTree = "<group>"; };
+		C23B590A1EE016DD005C77D3 /* UserTimeLineViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserTimeLineViewController.storyboard; sourceTree = "<group>"; };
+		C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewModel.swift; sourceTree = "<group>"; };
+		C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineRequest.swift; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C2577AC31EC32BF8008E55C7 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 				C2577AC91EC45DB7008E55C7 /* TabbarController.storyboard */,
 				C2577ADE1EC5B99B008E55C7 /* HomeTimeLineViewController.storyboard */,
 				ADF5D4191ED16010009E9F60 /* TweetDetailViewController.storyboard */,
+				C23B590A1EE016DD005C77D3 /* UserTimeLineViewController.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 				C2577ADB1EC5731A008E55C7 /* TabbarController.swift */,
 				C2577AE01EC5BA16008E55C7 /* HomeTimeLineViewController.swift */,
 				ADF5D41F1ED17162009E9F60 /* TweetDetailViewController.swift */,
+				C23B59081EE016B3005C77D3 /* UserTimeLineViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -351,6 +361,7 @@
 				C2814A841EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift */,
 				C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */,
 				C27C6C331EA8DFEE0018A423 /* HomeTimelineRequest.swift */,
+				C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */,
 				ADF5D4211ED17A91009E9F60 /* TweetDetailRequest.swift */,
 				C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */,
 				C2814A7A1EAE1F9000A11462 /* Translator.swift */,
@@ -378,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */,
+				C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */,
 				C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */,
 				C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */,
 				ADF5D4231ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift */,
@@ -499,6 +511,7 @@
 				C2577ADF1EC5B99B008E55C7 /* HomeTimeLineViewController.storyboard in Resources */,
 				C2577ACA1EC45DB7008E55C7 /* TabbarController.storyboard in Resources */,
 				C227187D1ED6C1FC00AB10CF /* LoadingIndicatorView.xib in Resources */,
+				C23B590B1EE016DD005C77D3 /* UserTimeLineViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,10 +580,12 @@
 				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
 				C2577AD91EC5725C008E55C7 /* CoordinatorFactoryImpl.swift in Sources */,
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
+				C23B59091EE016B3005C77D3 /* UserTimeLineViewController.swift in Sources */,
 				C2577AD41EC570B4008E55C7 /* DependencyCoordinatorProtocol.swift in Sources */,
 				C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */,
 				C2577AF21EC9BBF8008E55C7 /* TimeLineTweetCell.swift in Sources */,
 				C2577AED1EC9AAA5008E55C7 /* UIViewController+ViewLifeCycle.swift in Sources */,
+				C23B590D1EE01A88005C77D3 /* UserTimeLineViewModel.swift in Sources */,
 				C2577AFA1ECAA3E5008E55C7 /* UITableView+Extension.swift in Sources */,
 				C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */,
 				C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */,
@@ -578,6 +593,7 @@
 				C2814A7D1EAE1FDA00A11462 /* ValueObjectTranslator.swift in Sources */,
 				C2577AFC1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift in Sources */,
 				ADF5D4201ED17162009E9F60 /* TweetDetailViewController.swift in Sources */,
+				C23B590F1EE01B50005C77D3 /* UserTimeLineRequest.swift in Sources */,
 				C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */,
 				ADF5D4241ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift in Sources */,
 				C2577AE11EC5BA16008E55C7 /* HomeTimeLineViewController.swift in Sources */,

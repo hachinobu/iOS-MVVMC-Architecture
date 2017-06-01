@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lzv-zf-0t2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Time Line View Controller-->
+        <scene sceneID="D6t-Dx-LOa">
+            <objects>
+                <viewController id="Lzv-zf-0t2" customClass="UserTimeLineViewController" customModule="iOS_MVVMC_Architecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gEj-Mc-grA"/>
+                        <viewControllerLayoutGuide type="bottom" id="nF6-Kz-zKP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u7a-4X-H8e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RfS-mT-JRU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="fqQ-yO-6LZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OdK-5X-Izx">
+                                            <rect key="frame" x="169" y="4" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" red="0.4431372549" green="0.4941176471" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RfS-mT-JRU" firstAttribute="top" secondItem="u7a-4X-H8e" secondAttribute="top" id="91T-pt-MSL"/>
+                            <constraint firstItem="RfS-mT-JRU" firstAttribute="leading" secondItem="u7a-4X-H8e" secondAttribute="leading" id="IV3-ko-nP1"/>
+                            <constraint firstAttribute="bottom" secondItem="RfS-mT-JRU" secondAttribute="bottom" id="ano-8P-Jcs"/>
+                            <constraint firstAttribute="trailing" secondItem="RfS-mT-JRU" secondAttribute="trailing" id="iIj-0k-Vh7"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="OdK-5X-Izx" id="eki-ew-pnU"/>
+                        <outlet property="tableView" destination="RfS-mT-JRU" id="TIM-hj-lQV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UUj-qC-Eh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71.200000000000003" y="188.45577211394306"/>
+        </scene>
+    </scenes>
+</document>

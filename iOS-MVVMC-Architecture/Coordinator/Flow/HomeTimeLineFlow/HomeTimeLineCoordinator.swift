@@ -40,11 +40,16 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
     
     private func showDetail(tweetId: String) {
         let tweetDetailView = viewFactory.generateTweetDetailView(tweetId: tweetId)
-        tweetDetailView.selectedUser.subscribe(onNext: { id in
-            print(id)
+        tweetDetailView.selectedUser.subscribe(onNext: { [weak self] id in
+            self?.showUserTimeLine(userId: id)
         }).addDisposableTo(bag)
         
         router.push(presentable: tweetDetailView, animated: true, completion: nil)
+    }
+    
+    private func showUserTimeLine(userId: String) {
+        let userTimeLineView = viewFactory.generateUserTimeLineView(userId: userId)
+        router.push(presentable: userTimeLineView, animated: true, completion: nil)
     }
     
 }

@@ -50,7 +50,9 @@ extension TweetDetailViewController {
                 let imageURL = url!
                 let resource = ImageResource(downloadURL: imageURL, cacheKey: imageURL.absoluteString)
                 cell?.iconImageView.kf.indicatorType = .activity
-                cell?.iconImageView.kf.setImage(with: resource, placeholder: nil, options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly], progressBlock: nil, completionHandler: nil)
+                cell?.iconImageView.kf.setImage(with: resource, placeholder: nil,
+                                                options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
+                                                progressBlock: nil, completionHandler: nil)
             }).addDisposableTo(cell.bag)
             
             cell.iconButton.rx.tap
@@ -63,7 +65,9 @@ extension TweetDetailViewController {
                 .bind(to: weakSelf.selectedUserObserver)
                 .addDisposableTo(cell.bag)
             
-            cellViewModel.statusCount.asDriver(onErrorJustReturn: nil).drive(cell.countLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.statusCount.asDriver(onErrorJustReturn: nil)
+                .drive(cell.countLabel.rx.text)
+                .addDisposableTo(cell.bag)
             
             return cell
             
