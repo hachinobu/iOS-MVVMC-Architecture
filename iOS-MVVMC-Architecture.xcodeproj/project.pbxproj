@@ -28,6 +28,7 @@
 		C23B590B1EE016DD005C77D3 /* UserTimeLineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23B590A1EE016DD005C77D3 /* UserTimeLineViewController.storyboard */; };
 		C23B590D1EE01A88005C77D3 /* UserTimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */; };
 		C23B590F1EE01B50005C77D3 /* UserTimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */; };
+		C23B59111EE14A2C005C77D3 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC31EC32BF8008E55C7 /* Presentable.swift */; };
@@ -109,6 +110,7 @@
 		C23B590A1EE016DD005C77D3 /* UserTimeLineViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserTimeLineViewController.storyboard; sourceTree = "<group>"; };
 		C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewModel.swift; sourceTree = "<group>"; };
 		C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineRequest.swift; sourceTree = "<group>"; };
+		C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C2577AC31EC32BF8008E55C7 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */,
 				C27C6C331EA8DFEE0018A423 /* HomeTimelineRequest.swift */,
 				C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */,
+				C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */,
 				ADF5D4211ED17A91009E9F60 /* TweetDetailRequest.swift */,
 				C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */,
 				C2814A7A1EAE1F9000A11462 /* Translator.swift */,
@@ -614,6 +617,7 @@
 				C2577AE91EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift in Sources */,
 				C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */,
 				ADF5D4281ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift in Sources */,
+				C23B59111EE14A2C005C77D3 /* UserDetailRequest.swift in Sources */,
 				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
 				ADF5D4261ED1BC30009E9F60 /* TweetDetailViewModel.swift in Sources */,

@@ -24,9 +24,10 @@ final class UserTimeLineViewModel: TimeLineViewModel {
         return self.authTwitter.authError
     }()
     
+    private let list: Variable<[Tweet]?> = Variable(nil)
     lazy var tweets: Driver<[TimeLineCellViewModel]> = {
         
-        return self.fetchAction.elements
+        return self.list.asObservable()
             .withLatestFrom(self.fetchAction.inputs) { $0 }
             .scan([Tweet]()) { currentElements, nextFetchInfo -> [Tweet] in
                 
@@ -34,11 +35,11 @@ final class UserTimeLineViewModel: TimeLineViewModel {
                 let id: Int64? = nextFetchInfo.1
                 
                 if currentElements.isEmpty || id == nil {
-                    return results
+                    return results!
                 }
                 
-                if let id = id, let firstId = results.first?.id, id > firstId {
-                    return currentElements + results
+                if let id = id, let firstId = results?.first?.id, id > firstId {
+                    return currentElements + results!
                 }
                 
                 return currentElements
@@ -72,6 +73,10 @@ final class UserTimeLineViewModel: TimeLineViewModel {
     private let fetchAction: Action<Int64?, [Tweet]>
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
+    private let fetchUserAction: Action<Void, User>
+    
+    private let user: Variable<User?> = Variable(nil)
+    
     init(userId: String, viewWillAppear: Driver<Void>) {
         
         let account = authTwitter.currentAccount.asObservable()
@@ -86,12 +91,28 @@ final class UserTimeLineViewModel: TimeLineViewModel {
                 .shareReplayLatestWhileConnected()
         }
         
-        viewWillAppear.asObservable()
-            .take(1)
-            .map { nil }
-            .subscribe(onNext: { [weak self] id in
-                self?.fetchAction.execute(id)
-            }).addDisposableTo(bag)
+        fetchUserAction = Action { _ in
+            return account.map { UserDetailRequest(account: $0, parameters:  ["user_id": userId]) }
+                .flatMap { TwitterApiClient.execute(request: $0) }
+                .shareReplayLatestWhileConnected()
+        }
+        
+//        viewWillAppear.asObservable()
+//            .take(1)
+//            .map { nil }
+//            .subscribe(onNext: { [weak self] id in
+//                self?.fetchAction.execute(id)
+//            }).addDisposableTo(bag)
+        
+        let connect = Observable.zip(fetchAction.elements, fetchUserAction.elements)
+            .shareReplayLatestWhileConnected()
+        connect.map { $0.0 }.bind(to: list).addDisposableTo(bag)
+        connect.map { $0.1 }.bind(to: user).addDisposableTo(bag)
+        
+        viewWillAppear.asObservable().take(1).subscribe(onNext: { _ in
+            self.fetchAction.execute(nil)
+            self.fetchUserAction.execute(())
+        }).addDisposableTo(bag)
         
     }
     
