@@ -18,6 +18,8 @@ final class UserTimeLineViewModel: TimeLineViewModel {
     
     lazy var authStatus: Driver<AuthenticateTwitter.AuthStatus> = {
         return self.authTwitter.currentStatus
+            .shareReplayLatestWhileConnected()
+            .asDriver(onErrorDriveWith: .empty())
     }()
     
     lazy var authError: Driver<Error?> = {
