@@ -16,18 +16,7 @@ class AuthenticateTwitter {
     
     enum AuthStatus {
         case none
-        case denied
-        case noAccounts
         case authenticated(ACAccount)
-        
-        func noAccount() -> Bool {
-            switch self {
-            case .noAccounts:
-                return true
-            default:
-                return false
-            }
-        }
         
         func isAuthenticated() -> Bool {
             switch self {
@@ -47,17 +36,20 @@ class AuthenticateTwitter {
             }
         }
         
-        func fetchAuthMessage() -> String {
+    }
+    
+    enum AuthError: Error {
+        case denied
+        case noAccounts
+        
+        func fetchAuthErrorMessage() -> String {
             switch self {
             case .denied:
                 return "Twitterアカウント取得の権限がありません。\n[設定]-[プライバシー]からTwitterを許可してください"
             case .noAccounts:
                 return "Twitterアカウントが登録されていません。\n[設定]-[Twitter]からアカウントを登録してください"
-            default:
-                return ""
             }
         }
-        
     }
     
     static let sharedInstance: AuthenticateTwitter = AuthenticateTwitter()
@@ -104,15 +96,13 @@ class AuthenticateTwitter {
                     }
                     
                     guard isSuccess else {
-                        observer.onNext(.denied)
-                        observer.onCompleted()
+                        observer.onError(AuthError.denied)
                         return
                     }
                     
                     guard let accountList = accountStore.accounts(with: type) as? [ACAccount],
                         accountList.count > 0 else {
-                            observer.onNext(.noAccounts)
-                            observer.onCompleted()
+                            observer.onError(AuthError.noAccounts)
                             return
                     }
                     
@@ -129,8 +119,13 @@ class AuthenticateTwitter {
         }
         
         authAction.elements.bind(to: innerCurrentStatus).addDisposableTo(bag)
-        authAction.errors.map { e -> Error? in
-            return e
+        authAction.errors.flatMap { error -> Observable<Error> in
+            switch error {
+            case .underlyingError(let error):
+                return Observable.just(error)
+            case .notEnabled:
+                return Observable.empty()
+            }
         }.bind(to: innerAuthError).addDisposableTo(bag)
         
     }
