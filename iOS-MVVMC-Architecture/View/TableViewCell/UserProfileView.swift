@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import Kingfisher
 
-protocol UserDetailViewModelProtocol: class {
+protocol UserProfileViewModelProtocol: class {
     var userName: Observable<String?> { get }
     var screenName: Observable<String?> { get }
     var description: Observable<String?> { get }
@@ -21,6 +21,17 @@ protocol UserDetailViewModelProtocol: class {
     var profileURL: Observable<URL?> { get }
 }
 
-final class UserDetailView: UIView {
+final class UserProfileView: UIView {
 
+    @IBOutlet weak var profileBackgroundImageView: UIImageView!
+    @IBOutlet weak var profileIconImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    
+    class func instance() -> UserProfileView {
+        return UINib(nibName: "UserProfileView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UserProfileView
+    }
+    
 }

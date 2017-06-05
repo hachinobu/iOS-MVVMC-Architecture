@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4641AD2554EC350542DFC764 /* Pods_iOS_MVVMC_Architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */; };
+		AD7A5CB21EE598B600C5E674 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */; };
 		ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */; };
 		ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */; };
 		ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */; };
@@ -29,7 +30,7 @@
 		C23B590D1EE01A88005C77D3 /* UserTimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */; };
 		C23B590F1EE01B50005C77D3 /* UserTimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */; };
 		C23B59111EE14A2C005C77D3 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */; };
-		C24873A21EE5717E008AC2BE /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24873A11EE5717E008AC2BE /* UserDetailView.swift */; };
+		C24873A21EE5717E008AC2BE /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24873A11EE5717E008AC2BE /* UserProfileView.swift */; };
 		C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */; };
 		C2577ABB1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */; };
 		C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AC31EC32BF8008E55C7 /* Presentable.swift */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		09D4B0C4CCE59B35B17E27F3 /* Pods-iOS-MVVMC-Architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.debug.xcconfig"; sourceTree = "<group>"; };
 		5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVMC_Architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
 		ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+RxExtension.swift"; sourceTree = "<group>"; };
 		ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewModel.swift; sourceTree = "<group>"; };
 		C23B590E1EE01B50005C77D3 /* UserTimeLineRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineRequest.swift; sourceTree = "<group>"; };
 		C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
-		C24873A11EE5717E008AC2BE /* UserDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		C24873A11EE5717E008AC2BE /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C2577AB81EC1D0AC008E55C7 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		C2577ABA1EC1D98E008E55C7 /* ReusableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C2577AC31EC32BF8008E55C7 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -307,7 +309,8 @@
 				C2577AF31EC9BDA8008E55C7 /* TimeLineTweetCell.xib */,
 				ADF5D41B1ED163F5009E9F60 /* TweetDetailCell.xib */,
 				ADF5D41D1ED16E0A009E9F60 /* TweetDetailCell.swift */,
-				C24873A11EE5717E008AC2BE /* UserDetailView.swift */,
+				C24873A11EE5717E008AC2BE /* UserProfileView.swift */,
+				AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				ADF5D41C1ED163F5009E9F60 /* TweetDetailCell.xib in Resources */,
 				ADF5D41A1ED16010009E9F60 /* TweetDetailViewController.storyboard in Resources */,
 				C2577AF41EC9BDA8008E55C7 /* TimeLineTweetCell.xib in Resources */,
+				AD7A5CB21EE598B600C5E674 /* UserProfileView.xib in Resources */,
 				C2577ADF1EC5B99B008E55C7 /* HomeTimeLineViewController.storyboard in Resources */,
 				C2577ACA1EC45DB7008E55C7 /* TabbarController.storyboard in Resources */,
 				C227187D1ED6C1FC00AB10CF /* LoadingIndicatorView.xib in Resources */,
@@ -601,7 +605,7 @@
 				ADF5D4201ED17162009E9F60 /* TweetDetailViewController.swift in Sources */,
 				C23B590F1EE01B50005C77D3 /* UserTimeLineRequest.swift in Sources */,
 				C2577AC41EC32BF8008E55C7 /* Presentable.swift in Sources */,
-				C24873A21EE5717E008AC2BE /* UserDetailView.swift in Sources */,
+				C24873A21EE5717E008AC2BE /* UserProfileView.swift in Sources */,
 				ADF5D4241ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift in Sources */,
 				C2577AE11EC5BA16008E55C7 /* HomeTimeLineViewController.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
