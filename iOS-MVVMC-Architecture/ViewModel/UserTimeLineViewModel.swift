@@ -47,6 +47,15 @@ final class UserTimeLineViewModel: TimeLineViewModel {
         }
     }()
     
+    private let user: Variable<User?> = Variable(nil)
+    lazy var userProfileViewModel: Driver<UserProfileViewModel> = {
+        return self.user.asObservable()
+            .filter { $0 != nil }
+            .map { $0! }
+            .map { try UserProfileViewModelTranslator().translate($0) }
+            .asDriver(onErrorDriveWith: Driver.empty())
+    }()
+    
     lazy var authAccount: Driver<ACAccount> = {
         return self.authTwitter.currentAccount
     }()
@@ -59,8 +68,6 @@ final class UserTimeLineViewModel: TimeLineViewModel {
     private let authTwitter = AuthenticateTwitter.sharedInstance
     
     private let fetchUserAction: Action<Void, User>
-    
-    private let user: Variable<User?> = Variable(nil)
     
     init(userId: String, viewWillAppear: Driver<Void>) {
         

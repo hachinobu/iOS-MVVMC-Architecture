@@ -59,6 +59,8 @@
 		C2577AFA1ECAA3E5008E55C7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AF91ECAA3E5008E55C7 /* UITableView+Extension.swift */; };
 		C2577AFC1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */; };
 		C2577AFE1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */; };
+		C259EAFF1EE6D00E00E28036 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259EAFE1EE6D00E00E28036 /* UserProfileViewModel.swift */; };
+		C259EB011EE6D3AF00E28036 /* UserProfileViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259EB001EE6D3AF00E28036 /* UserProfileViewModelTranslator.swift */; };
 		C27C6C0D1EA8BA940018A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */; };
 		C27C6C141EA8BA940018A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C131EA8BA940018A423 /* Assets.xcassets */; };
 		C27C6C171EA8BA940018A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27C6C151EA8BA940018A423 /* LaunchScreen.storyboard */; };
@@ -143,6 +145,8 @@
 		C2577AF91ECAA3E5008E55C7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineCellViewModel.swift; sourceTree = "<group>"; };
 		C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewModelTranslator.swift; sourceTree = "<group>"; };
+		C259EAFE1EE6D00E00E28036 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		C259EB001EE6D3AF00E28036 /* UserProfileViewModelTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModelTranslator.swift; sourceTree = "<group>"; };
 		C27C6C091EA8BA940018A423 /* iOS-MVVMC-Architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVMC-Architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27C6C0C1EA8BA940018A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27C6C131EA8BA940018A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				C2814A7C1EAE1FDA00A11462 /* ValueObjectTranslator.swift */,
 				C2577AFD1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift */,
 				ADF5D4291ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift */,
+				C259EB001EE6D3AF00E28036 /* UserProfileViewModelTranslator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				ADF5D4231ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift */,
 				ADF5D4251ED1BC30009E9F60 /* TweetDetailViewModel.swift */,
 				ADF5D4271ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift */,
+				C259EAFE1EE6D00E00E28036 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				ADF5D4241ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift in Sources */,
 				C2577AE11EC5BA16008E55C7 /* HomeTimeLineViewController.swift in Sources */,
 				C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */,
+				C259EB011EE6D3AF00E28036 /* UserProfileViewModelTranslator.swift in Sources */,
 				C2577AF61ECAA270008E55C7 /* NibLoadableView.swift in Sources */,
 				C2814A891EAF476200A11462 /* Validator.swift in Sources */,
 				C2577ADC1EC5731A008E55C7 /* TabbarController.swift in Sources */,
@@ -616,6 +623,7 @@
 				C2577AFE1ECAD3BF008E55C7 /* HomeTimeLineViewModelTranslator.swift in Sources */,
 				C2814A751EAE124600A11462 /* User.swift in Sources */,
 				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
+				C259EAFF1EE6D00E00E28036 /* UserProfileViewModel.swift in Sources */,
 				ADF5D4221ED17A91009E9F60 /* TweetDetailRequest.swift in Sources */,
 				C2577AC81EC33235008E55C7 /* RouterImpl.swift in Sources */,
 				C2577AD01EC56EF9008E55C7 /* TabbarViewProtocol.swift in Sources */,
