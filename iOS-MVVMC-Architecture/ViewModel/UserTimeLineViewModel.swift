@@ -12,7 +12,7 @@ import RxCocoa
 import Action
 import Accounts
 
-final class UserTimeLineViewModel: TimeLineViewModel {
+final class UserTimeLineViewModel: UserTimeLineViewModelProtocol {
     
     private let bag = DisposeBag()
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeTimeLineViewFactory {
-    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable
+    func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable
     func generateTweetDetailView(tweetId: String) -> TweetDetailViewProtocol & Presentable
-    func generateUserTimeLineView(userId: String) -> TimeLineViewProtocol & Presentable
+    func generateUserTimeLineView(userId: String) -> UserTimeLineViewProtocol & Presentable
 }

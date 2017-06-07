@@ -30,7 +30,6 @@ final class TweetDetailViewController: UIViewController, TweetDetailViewProtocol
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TweetDetailCell.self)
         bindTableView()
-        tableView.tableHeaderView = UserProfileView.instance()
         
     }
 

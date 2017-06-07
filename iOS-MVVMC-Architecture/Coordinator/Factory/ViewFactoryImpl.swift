@@ -10,7 +10,7 @@ import UIKit
 
 final class ViewFactoryImpl: HomeTimeLineViewFactory {
     
-    func generateHomeTimeLineView() -> TimeLineViewProtocol & Presentable {
+    func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let homeTimeLineView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
         let viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.rx.viewWillAppear.asDriver())
         homeTimeLineView.viewModel = viewModel
@@ -24,7 +24,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory {
         return tweetDetailView
     }
     
-    func generateUserTimeLineView(userId: String) -> Presentable & TimeLineViewProtocol {
+    func generateUserTimeLineView(userId: String) -> Presentable & UserTimeLineViewProtocol {
         let userTimeLineView = UIStoryboard.instantiateInitialViewController(withType: UserTimeLineViewController.self)
         let viewModel = UserTimeLineViewModel(userId: userId, viewWillAppear: userTimeLineView.rx.viewWillAppear.asDriver())
         userTimeLineView.viewModel = viewModel

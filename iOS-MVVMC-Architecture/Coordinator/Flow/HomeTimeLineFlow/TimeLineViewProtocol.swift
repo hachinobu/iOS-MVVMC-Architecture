@@ -13,5 +13,4 @@ import RxCocoa
 protocol TimeLineViewProtocol {
     var selectedTweetId: Observable<String> { get }
     var reachedBottom: ControlEvent<Void> { get }
-    var viewModel: TimeLineViewModel! { get }
 }

@@ -11,13 +11,13 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-final class UserTimeLineViewController: UIViewController, TimeLineViewProtocol {
+final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtocol {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     let bag = DisposeBag()
-    var viewModel: TimeLineViewModel!
+    var viewModel: UserTimeLineViewModelProtocol!
     
     fileprivate var selectedTweetIdObserver = PublishSubject<String>()
     lazy var selectedTweetId: Observable<String> = {
@@ -47,6 +47,7 @@ extension UserTimeLineViewController {
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
+        tableView.tableHeaderView = UserProfileView.instance()
     }
     
     fileprivate func bindAuthStatus() {
@@ -75,6 +76,10 @@ extension UserTimeLineViewController {
     }
     
     fileprivate func bindTableView() {
+        
+        viewModel.userProfileViewModel.drive(onNext: { (vm) in
+            print("userProfileViewModel bind")
+        }).addDisposableTo(bag)
         
         viewModel.tweets
             .map { _ in false }

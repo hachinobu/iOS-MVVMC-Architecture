@@ -11,8 +11,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class HomeTimeLineViewController: UITableViewController, TimeLineViewProtocol {
-    
+class HomeTimeLineViewController: UITableViewController, HomeTimeLineViewProtocol {
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     

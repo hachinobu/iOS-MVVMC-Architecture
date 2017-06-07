@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4641AD2554EC350542DFC764 /* Pods_iOS_MVVMC_Architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */; };
+		AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */; };
+		AD4BD3281EE83D67008209B9 /* UserTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */; };
 		AD7A5CB21EE598B600C5E674 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */; };
+		ADBED8E11EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBED8E01EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift */; };
 		ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */; };
 		ADF5D40F1EC1F763009E9F60 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */; };
 		ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */; };
@@ -93,7 +96,10 @@
 /* Begin PBXFileReference section */
 		09D4B0C4CCE59B35B17E27F3 /* Pods-iOS-MVVMC-Architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVMC-Architecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVMC-Architecture/Pods-iOS-MVVMC-Architecture.debug.xcconfig"; sourceTree = "<group>"; };
 		5EFA598582076608870D4A1B /* Pods_iOS_MVVMC_Architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_MVVMC_Architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewProtocol.swift; sourceTree = "<group>"; };
+		AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
+		ADBED8E01EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewModelProtocol.swift; sourceTree = "<group>"; };
 		ADF5D40B1EBF5593009E9F60 /* UIVIewController+RxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+RxExtension.swift"; sourceTree = "<group>"; };
 		ADF5D40E1EC1F763009E9F60 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ADF5D4101EC1F7FC009E9F60 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -300,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				C2577AE21EC5C253008E55C7 /* TimeLineViewProtocol.swift */,
+				AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */,
+				AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */,
 				C2577AE81EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift */,
 				C22718771ED27BF700AB10CF /* TweetDetailViewProtocol.swift */,
 			);
@@ -405,6 +413,7 @@
 				C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */,
 				C23B590C1EE01A88005C77D3 /* UserTimeLineViewModel.swift */,
 				C2577AEE1EC9B9E3008E55C7 /* TimeLineViewModel.swift */,
+				ADBED8E01EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift */,
 				C2577AFB1ECAD1F2008E55C7 /* HomeTimeLineCellViewModel.swift */,
 				ADF5D4231ED1BA07009E9F60 /* TweetDetailViewModelProtocol.swift */,
 				ADF5D4251ED1BC30009E9F60 /* TweetDetailViewModel.swift */,
@@ -595,6 +604,7 @@
 			files = (
 				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
 				C2577AD91EC5725C008E55C7 /* CoordinatorFactoryImpl.swift in Sources */,
+				ADBED8E11EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift in Sources */,
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C23B59091EE016B3005C77D3 /* UserTimeLineViewController.swift in Sources */,
 				C2577AD41EC570B4008E55C7 /* DependencyCoordinatorProtocol.swift in Sources */,
@@ -637,6 +647,7 @@
 				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
 				ADF5D4261ED1BC30009E9F60 /* TweetDetailViewModel.swift in Sources */,
+				AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */,
 				ADF5D42A1ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift in Sources */,
 				C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */,
 				C227187F1ED6C33300AB10CF /* LoadingIndicatorView.swift in Sources */,
@@ -651,6 +662,7 @@
 				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
 				C227187A1ED2BAF800AB10CF /* UITableViewController+RxExtension.swift in Sources */,
 				C2577AD21EC5700A008E55C7 /* TabbarCoordinator.swift in Sources */,
+				AD4BD3281EE83D67008209B9 /* UserTimeLineViewProtocol.swift in Sources */,
 				C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

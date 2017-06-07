@@ -11,7 +11,6 @@ import Foundation
 struct UserProfileViewModelTranslator: Translator {
     
     func translate(_ input: User) throws -> UserProfileViewModel {
-        
         let userName = input.name
         let screenName = input.screenName
         let description = input.description
