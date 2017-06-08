@@ -28,6 +28,8 @@ final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtoc
         return self.tableView.rx.reachedBottom
     }()
     
+    let userProfileView: UserProfileView = UserProfileView.instance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -47,7 +49,7 @@ extension UserTimeLineViewController {
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
-        tableView.tableHeaderView = UserProfileView.instance()
+        tableView.tableHeaderView = userProfileView
     }
     
     fileprivate func bindAuthStatus() {
@@ -77,8 +79,33 @@ extension UserTimeLineViewController {
     
     fileprivate func bindTableView() {
         
-        viewModel.userProfileViewModel.drive(onNext: { (vm) in
-            print("userProfileViewModel bind")
+        viewModel.userProfileViewModel.drive(onNext: { [weak self] vm in
+            guard let weakSelf = self else { return }
+            vm.userName.bind(to: weakSelf.userProfileView.userNameLabel.rx.text).addDisposableTo(weakSelf.bag)
+            vm.screenName.bind(to: weakSelf.userProfileView.screenNameLabel.rx.text).addDisposableTo(weakSelf.bag)
+            vm.description.bind(to: weakSelf.userProfileView.descriptionLabel.rx.text).addDisposableTo(weakSelf.bag)
+            vm.followingCount.bind(to: weakSelf.userProfileView.followingLabel.rx.text).addDisposableTo(weakSelf.bag)
+            vm.followerCount.bind(to: weakSelf.userProfileView.followerLabel.rx.text).addDisposableTo(weakSelf.bag)
+            vm.profileURL.filter { $0 != nil }.subscribe(onNext: { url in
+                let imageURL = url!
+                let resource = ImageResource(downloadURL: imageURL, cacheKey: imageURL.absoluteString)
+                weakSelf.userProfileView.profileIconImageView.kf.indicatorType = .activity
+                weakSelf.userProfileView.profileIconImageView.kf.setImage(with: resource, placeholder: nil,
+                                                                          options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
+                                                                          progressBlock: nil, completionHandler: nil)
+                
+            }).addDisposableTo(weakSelf.bag)
+            
+            vm.backgroundImageURL.filter { $0 != nil }.subscribe(onNext: { url in
+                let imageURL = url!
+                print(imageURL.absoluteString)
+                let resource = ImageResource(downloadURL: imageURL, cacheKey: imageURL.absoluteString)
+                weakSelf.userProfileView.profileBackgroundImageView.kf.indicatorType = .none
+                weakSelf.userProfileView.profileBackgroundImageView.kf.setImage(with: resource, placeholder: nil,
+                                                                          options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
+                                                                          progressBlock: nil, completionHandler: nil)
+            }).addDisposableTo(weakSelf.bag)
+            
         }).addDisposableTo(bag)
         
         viewModel.tweets

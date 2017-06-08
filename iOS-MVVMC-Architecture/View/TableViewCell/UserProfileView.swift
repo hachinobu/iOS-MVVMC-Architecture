@@ -28,7 +28,14 @@ final class UserProfileView: UIView {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var followerLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profileIconImageView.layer.cornerRadius = 8.0
+        profileIconImageView.layer.masksToBounds = true
+    }
     
     class func instance() -> UserProfileView {
         return UINib(nibName: "UserProfileView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UserProfileView
