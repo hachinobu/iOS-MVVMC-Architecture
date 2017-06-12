@@ -11,13 +11,10 @@ import RxSwift
 import RxCocoa
 import Accounts
 
-protocol TweetDetailViewModelProtocol: class {
+protocol TweetDetailViewModelProtocol: class, AuthViewModelProtocol {
     
-    var authStatus: Driver<AuthenticateTwitter.AuthStatus> { get }
-    var authError: Driver<Error?> { get }
     var tweets: Driver<[TweetDetailCellViewModel]> { get }
     var error: Driver<Error> { get }
-    var authAccount: Driver<ACAccount> { get }
     
 }
 

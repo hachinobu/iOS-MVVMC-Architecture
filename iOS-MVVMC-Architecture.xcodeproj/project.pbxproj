@@ -80,6 +80,7 @@
 		C2814A871EAF473C00A11462 /* NetworkValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A861EAF473C00A11462 /* NetworkValidator.swift */; };
 		C2814A891EAF476200A11462 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A881EAF476200A11462 /* Validator.swift */; };
 		C2814A8B1EAF4B4900A11462 /* TwitterRequest+Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */; };
+		C2BF425E1EEE9E2300D4A25E /* AuthViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF425D1EEE9E2300D4A25E /* AuthViewModelProtocol.swift */; };
 		C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +174,7 @@
 		C2814A861EAF473C00A11462 /* NetworkValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkValidator.swift; sourceTree = "<group>"; };
 		C2814A881EAF476200A11462 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C2814A8A1EAF4B4900A11462 /* TwitterRequest+Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TwitterRequest+Validator.swift"; sourceTree = "<group>"; };
+		C2BF425D1EEE9E2300D4A25E /* AuthViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModelProtocol.swift; sourceTree = "<group>"; };
 		C2D603EB1EB07620003D64F9 /* HomeTimeLineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -419,6 +421,7 @@
 				ADF5D4251ED1BC30009E9F60 /* TweetDetailViewModel.swift */,
 				ADF5D4271ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift */,
 				C259EAFE1EE6D00E00E28036 /* UserProfileViewModel.swift */,
+				C2BF425D1EEE9E2300D4A25E /* AuthViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				C23B59111EE14A2C005C77D3 /* UserDetailRequest.swift in Sources */,
 				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
+				C2BF425E1EEE9E2300D4A25E /* AuthViewModelProtocol.swift in Sources */,
 				ADF5D4261ED1BC30009E9F60 /* TweetDetailViewModel.swift in Sources */,
 				AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */,
 				ADF5D42A1ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift in Sources */,

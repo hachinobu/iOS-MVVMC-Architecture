@@ -11,13 +11,10 @@ import RxSwift
 import RxCocoa
 import Accounts
 
-protocol TimeLineViewModel: class {
+protocol TimeLineViewModel: class, AuthViewModelProtocol {
     
-    var authStatus: Driver<AuthenticateTwitter.AuthStatus> { get }
-    var authError: Driver<Error?> { get }
     var tweets: Driver<[TimeLineCellViewModel]> { get }
     var error: Driver<Error> { get }
-    var authAccount: Driver<ACAccount> { get }
     var loadingIndicatorAnimation: Driver<Bool> { get }
     
     func bindRefresh(refresh: Driver<Void>)

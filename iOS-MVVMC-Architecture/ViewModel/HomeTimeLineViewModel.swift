@@ -16,16 +16,6 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     
     private let bag = DisposeBag()
     
-    lazy var authStatus: Driver<AuthenticateTwitter.AuthStatus> = {
-        return self.authTwitter.currentStatus
-            .shareReplayLatestWhileConnected()
-            .asDriver(onErrorDriveWith: .empty())
-    }()
-    
-    lazy var authError: Driver<Error?> = {
-        return self.authTwitter.authError
-    }()
-    
     lazy var tweets: Driver<[TimeLineCellViewModel]> = {
         
         return self.fetchAction.elements
@@ -63,16 +53,11 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
         }
     }()
     
-    lazy var authAccount: Driver<ACAccount> = {
-        return self.authTwitter.currentAccount
-    }()
-    
     lazy var loadingIndicatorAnimation: Driver<Bool> = {
         return self.fetchAction.executing.shareReplayLatestWhileConnected().asDriver(onErrorJustReturn: false)
     }()
         
     private let fetchAction: Action<Int64?, [Tweet]>
-    private let authTwitter = AuthenticateTwitter.sharedInstance
     
 //    init<Request: TwitterRequestProtocol, TranslatorType: Translator>(request: Request, translator: TranslatorType) where Request.Response == [Element], TranslatorType.Input == Element, TranslatorType.Output == TimeLineCellViewModel {
 //        
@@ -102,10 +87,9 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     
     init(viewWillAppear: Driver<Void>) {
         
-        let account = authTwitter.currentAccount.asObservable()
         fetchAction = Action { sinceId in
             let parameters = sinceId != nil ? ["max_id": sinceId!.description] : [:]
-            return account
+            return AuthenticateTwitter.sharedInstance.currentAccount.asObservable()
                 .map { HomeTimelineRequest(account: $0, parameters: parameters) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .shareReplayLatestWhileConnected()
@@ -135,7 +119,7 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     func bindReachedBottom(reachedBottom: Driver<Void>) {
         
         reachedBottom.asObservable()
-            .withLatestFrom(loadingIndicatorAnimation.asObservable()) { $0.1 }
+            .withLatestFrom(loadingIndicatorAnimation.asObservable())
             .filter { !$0 }
             .withLatestFrom(fetchAction.elements) { $0.1.last }
             .filter { $0 != nil }
