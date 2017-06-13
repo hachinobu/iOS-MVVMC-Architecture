@@ -87,9 +87,11 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     
     init(viewWillAppear: Driver<Void>) {
         
+        let account = AuthenticateTwitter.sharedInstance.currentAccount
+            .asObservable().shareReplayLatestWhileConnected()
         fetchAction = Action { sinceId in
             let parameters = sinceId != nil ? ["max_id": sinceId!.description] : [:]
-            return AuthenticateTwitter.sharedInstance.currentAccount.asObservable()
+            return account
                 .map { HomeTimelineRequest(account: $0, parameters: parameters) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
                 .shareReplayLatestWhileConnected()
@@ -107,9 +109,8 @@ final class HomeTimeLineViewModel: TimeLineViewModel {
     func bindRefresh(refresh: Driver<Void>) {
         
         refresh.asObservable()
-            .withLatestFrom(loadingIndicatorAnimation.asObservable()) { (_, isRefresh) -> Bool in
-                return isRefresh
-            }.filter { !$0 }
+            .withLatestFrom(loadingIndicatorAnimation.asObservable())
+            .filter { !$0 }
             .map { _ in return nil }
             .bind(to: fetchAction.inputs)
             .addDisposableTo(bag)

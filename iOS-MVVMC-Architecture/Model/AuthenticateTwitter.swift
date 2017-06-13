@@ -58,9 +58,44 @@ class AuthenticateTwitter {
     
     private let innerCurrentStatus = Variable<AuthStatus>(.none)
     lazy var currentStatus: Observable<AuthStatus> = {
-        return self.innerCurrentStatus.asObservable()
+        return Observable<AuthStatus>.create { observer -> Disposable in
+            
+            let accountStore = ACAccountStore()
+            let type = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)!
+            
+            accountStore.requestAccessToAccounts(with: type, options: nil) { isSuccess, error in
+                
+                if let error = error {
+                    self.innerAuthError.value = error
+                    observer.onCompleted()
+                    return
+                }
+                
+                guard isSuccess else {
+                    self.innerAuthError.value = AuthError.denied
+                    observer.onCompleted()
+                    return
+                }
+                
+                guard let accountList = accountStore.accounts(with: type) as? [ACAccount],
+                    accountList.count > 0 else {
+                        self.innerAuthError.value = AuthError.noAccounts
+                        observer.onCompleted()
+                        return
+                }
+                
+                let status = AuthStatus.authenticated(accountList.first!)
+                observer.onNext(status)
+                observer.onCompleted()
+                
+            }
+            
+            return Disposables.create()
+            
+        }
+        
     }()
-    
+
     lazy var currentAccount: Driver<ACAccount> = {
         return self.currentStatus
             .filter { $0.isAuthenticated() }
@@ -73,61 +108,55 @@ class AuthenticateTwitter {
         return self.innerAuthError.asDriver()
     }()
     
-    lazy var authTrigger: PublishSubject<Void> = {
-        return self.authAction.inputs
-    }()
-    
-    let authAction: Action<Void, AuthStatus>
-    
     init() {
         
-        authAction = Action { _ in
-            
-            return Observable.create { observer -> Disposable in
-                
-                let accountStore = ACAccountStore()
-                let type = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)!
-                
-                accountStore.requestAccessToAccounts(with: type, options: nil) { isSuccess, error in
-                    
-                    if let error = error {
-                        observer.onError(error)
-                        return
-                    }
-                    
-                    guard isSuccess else {
-                        observer.onError(AuthError.denied)
-                        return
-                    }
-                    
-                    guard let accountList = accountStore.accounts(with: type) as? [ACAccount],
-                        accountList.count > 0 else {
-                            observer.onError(AuthError.noAccounts)
-                            return
-                    }
-                    
-                    let status = AuthStatus.authenticated(accountList.first!)
-                    observer.onNext(status)
-                    observer.onCompleted()
-                    
-                }
-                
-                return Disposables.create()
-                
-            }
-            
-        }
+//        authAction = Action { _ in
+//            
+//            return Observable.create { observer -> Disposable in
+//                
+//                let accountStore = ACAccountStore()
+//                let type = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)!
+//                
+//                accountStore.requestAccessToAccounts(with: type, options: nil) { isSuccess, error in
+//                    
+//                    if let error = error {
+//                        observer.onError(error)
+//                        return
+//                    }
+//                    
+//                    guard isSuccess else {
+//                        observer.onError(AuthError.denied)
+//                        return
+//                    }
+//                    
+//                    guard let accountList = accountStore.accounts(with: type) as? [ACAccount],
+//                        accountList.count > 0 else {
+//                            observer.onError(AuthError.noAccounts)
+//                            return
+//                    }
+//                    
+//                    let status = AuthStatus.authenticated(accountList.first!)
+//                    observer.onNext(status)
+//                    observer.onCompleted()
+//                    
+//                }
+//                
+//                return Disposables.create()
+//                
+//            }
         
-        authAction.elements.bind(to: innerCurrentStatus).addDisposableTo(bag)
-        authAction.errors.flatMap { error -> Observable<Error> in
-            switch error {
-            case .underlyingError(let error):
-                return Observable.just(error)
-            case .notEnabled:
-                return Observable.empty()
-            }
-        }.bind(to: innerAuthError).addDisposableTo(bag)
+//        }
         
+//        authAction.elements.bind(to: innerCurrentStatus).addDisposableTo(bag)
+//        authAction.errors.flatMap { error -> Observable<Error> in
+//            switch error {
+//            case .underlyingError(let error):
+//                return Observable.just(error)
+//            case .notEnabled:
+//                return Observable.empty()
+//            }
+//        }.bind(to: innerAuthError).addDisposableTo(bag)
+    
     }
     
 }
