@@ -12,7 +12,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory {
     
     func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let homeTimeLineView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
-        let viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.rx.viewWillAppear.asDriver())
+        let viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.rx.viewWillAppear.asDriver(), RequestType: HomeTimelineRequest.self)
         homeTimeLineView.viewModel = viewModel
         return homeTimeLineView
     }

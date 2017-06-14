@@ -26,6 +26,8 @@ protocol TwitterRequestProtocol {
     var translator: ValueObjectTranslator<Response> { get }
     var validator: NetworkValidator { get }
     
+    init(account: ACAccount, parameters: [String: Any]!)
+    
 }
 
 extension TwitterRequestProtocol {
