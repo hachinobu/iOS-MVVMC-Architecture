@@ -29,7 +29,9 @@ final class UserProfileView: UIView {
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var followingListButton: UIButton!
     @IBOutlet weak var followerLabel: UILabel!
+    @IBOutlet weak var followerListButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

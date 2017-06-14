@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -70,6 +70,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVT-jx-N4E">
+                    <rect key="frame" x="8" y="236" width="33" height="21"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-0z-T4C">
+                    <rect key="frame" x="46" y="236" width="33" height="21"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -78,25 +84,35 @@
                 <constraint firstItem="gld-ne-o1a" firstAttribute="centerY" secondItem="bZu-vj-dRe" secondAttribute="centerY" id="7m0-lI-q61"/>
                 <constraint firstAttribute="trailing" secondItem="hIb-Zn-zcW" secondAttribute="trailing" id="8ez-2g-6lf"/>
                 <constraint firstItem="QgL-fB-OFN" firstAttribute="leading" secondItem="d9t-kJ-22o" secondAttribute="leading" id="8fI-bx-C2t"/>
+                <constraint firstItem="3t0-0z-T4C" firstAttribute="width" secondItem="gld-ne-o1a" secondAttribute="width" id="E9B-3r-RCg"/>
                 <constraint firstItem="sVs-qr-fxd" firstAttribute="top" secondItem="rMR-q7-Yfj" secondAttribute="top" constant="50" id="Ej4-Sz-Bna"/>
                 <constraint firstItem="QgL-fB-OFN" firstAttribute="top" secondItem="d9t-kJ-22o" secondAttribute="bottom" constant="2" id="Khq-rn-Ssw"/>
                 <constraint firstAttribute="trailing" secondItem="0O4-8s-xvv" secondAttribute="trailing" constant="8" id="NAv-li-hcD"/>
                 <constraint firstItem="sVs-qr-fxd" firstAttribute="leading" secondItem="rMR-q7-Yfj" secondAttribute="leading" constant="8" id="Nu3-VK-nP5"/>
                 <constraint firstItem="gld-ne-o1a" firstAttribute="bottom" secondItem="bZu-vj-dRe" secondAttribute="bottom" id="Ovz-6g-Nwe"/>
+                <constraint firstItem="3t0-0z-T4C" firstAttribute="height" secondItem="gld-ne-o1a" secondAttribute="height" id="Pgz-Dh-1oA"/>
+                <constraint firstItem="HVT-jx-N4E" firstAttribute="height" secondItem="bZu-vj-dRe" secondAttribute="height" id="Q4K-zq-NUs"/>
                 <constraint firstItem="0O4-8s-xvv" firstAttribute="top" secondItem="QgL-fB-OFN" secondAttribute="bottom" constant="3" id="Uqr-12-T1v"/>
                 <constraint firstItem="hIb-Zn-zcW" firstAttribute="leading" secondItem="rMR-q7-Yfj" secondAttribute="leading" id="aSH-pT-7XE"/>
+                <constraint firstItem="HVT-jx-N4E" firstAttribute="centerY" secondItem="bZu-vj-dRe" secondAttribute="centerY" id="bq6-FL-DxO"/>
                 <constraint firstItem="gld-ne-o1a" firstAttribute="leading" secondItem="bZu-vj-dRe" secondAttribute="trailing" constant="5" id="c8J-jS-8wl"/>
                 <constraint firstItem="0O4-8s-xvv" firstAttribute="leading" secondItem="QgL-fB-OFN" secondAttribute="leading" id="cSO-4T-WEz"/>
+                <constraint firstItem="HVT-jx-N4E" firstAttribute="width" secondItem="bZu-vj-dRe" secondAttribute="width" id="cSy-qV-CLy"/>
                 <constraint firstItem="bZu-vj-dRe" firstAttribute="top" secondItem="0O4-8s-xvv" secondAttribute="bottom" constant="3" id="df3-YI-mY6"/>
+                <constraint firstItem="HVT-jx-N4E" firstAttribute="centerX" secondItem="bZu-vj-dRe" secondAttribute="centerX" id="h5D-G5-h3J"/>
+                <constraint firstItem="3t0-0z-T4C" firstAttribute="centerX" secondItem="gld-ne-o1a" secondAttribute="centerX" id="lpr-bw-OZ6"/>
                 <constraint firstItem="d9t-kJ-22o" firstAttribute="top" secondItem="sVs-qr-fxd" secondAttribute="bottom" constant="10" id="mbi-3n-ilO"/>
                 <constraint firstItem="d9t-kJ-22o" firstAttribute="leading" secondItem="sVs-qr-fxd" secondAttribute="leading" id="mip-2K-1B9"/>
+                <constraint firstItem="3t0-0z-T4C" firstAttribute="centerY" secondItem="gld-ne-o1a" secondAttribute="centerY" id="qdE-aN-pvb"/>
                 <constraint firstAttribute="bottom" secondItem="bZu-vj-dRe" secondAttribute="bottom" constant="3" id="yoS-vC-c1P"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="descriptionLabel" destination="0O4-8s-xvv" id="FVY-V5-zuh"/>
                 <outlet property="followerLabel" destination="gld-ne-o1a" id="fEt-8W-Tmr"/>
+                <outlet property="followerListButton" destination="3t0-0z-T4C" id="g1N-iY-NZF"/>
                 <outlet property="followingLabel" destination="bZu-vj-dRe" id="H6v-bc-CcS"/>
+                <outlet property="followingListButton" destination="HVT-jx-N4E" id="Psc-9y-amU"/>
                 <outlet property="profileBackgroundImageView" destination="hIb-Zn-zcW" id="GJ2-BJ-A0p"/>
                 <outlet property="profileIconImageView" destination="sVs-qr-fxd" id="Dj9-ZX-EHp"/>
                 <outlet property="screenNameLabel" destination="QgL-fB-OFN" id="OQD-Dm-woT"/>
