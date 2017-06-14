@@ -23,6 +23,11 @@ class HomeTimeLineViewController: UITableViewController, HomeTimeLineViewProtoco
         return self.selectedTweetIdObserver.asObservable()
     }()
     
+    fileprivate var selectedUserObserver = PublishSubject<String>()
+    lazy var selectedUser: Observable<String> = {
+        return self.selectedUserObserver.asObservable()
+    }()
+    
     lazy var reachedBottom: ControlEvent<Void> = {
         return self.tableView.rx.reachedBottom
     }()
@@ -107,6 +112,11 @@ extension HomeTimeLineViewController {
                                                 options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
                                                 progressBlock: nil, completionHandler: nil)
             }).addDisposableTo(cell.bag)
+            
+            cell.iconButton.rx.tap
+                .map { cellViewModel.userId.description }
+                .bind(to: weakSelf.selectedUserObserver)
+                .addDisposableTo(cell.bag)
             
             return cell
             }.addDisposableTo(bag)

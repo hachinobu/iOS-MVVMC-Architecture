@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol HomeTimeLineViewProtocol: TimeLineViewProtocol {
     var viewModel: TimeLineViewModel! { get }
+    var selectedUser: Observable<String> { get }
 }

@@ -34,6 +34,10 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
             self?.showDetail(tweetId: id)
         }).addDisposableTo(bag)
         
+        homeTimeLineView.selectedUser.subscribe(onNext: { [weak self] userId in
+            self?.showUserTimeLine(userId: userId)
+        }).addDisposableTo(bag)
+        
         router.setRoot(presentable: homeTimeLineView, hideBar: false)
         
     }

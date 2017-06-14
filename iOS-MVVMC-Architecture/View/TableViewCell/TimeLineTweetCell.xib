@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -55,12 +55,18 @@
                             <constraint firstAttribute="height" constant="50" id="tZf-bQ-ooZ"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-As-C3W">
+                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="b1g-Th-wlG" firstAttribute="top" secondItem="ae9-ze-QGT" secondAttribute="bottom" constant="5" id="FO5-U0-CRV"/>
                     <constraint firstAttribute="trailing" secondItem="ae9-ze-QGT" secondAttribute="trailing" constant="8" id="IhY-fz-g8q"/>
+                    <constraint firstItem="2Nz-As-C3W" firstAttribute="centerY" secondItem="iOm-R0-Pw0" secondAttribute="centerY" id="KG1-1A-YpG"/>
+                    <constraint firstItem="2Nz-As-C3W" firstAttribute="centerX" secondItem="iOm-R0-Pw0" secondAttribute="centerX" id="KxZ-Lh-ypP"/>
                     <constraint firstAttribute="bottom" secondItem="b1g-Th-wlG" secondAttribute="bottom" constant="7.5" id="QgI-lq-8mW"/>
                     <constraint firstItem="ae9-ze-QGT" firstAttribute="top" secondItem="BeP-kv-42o" secondAttribute="top" constant="8" id="RkT-XD-cmK"/>
+                    <constraint firstItem="2Nz-As-C3W" firstAttribute="width" secondItem="iOm-R0-Pw0" secondAttribute="width" id="UX9-Dt-6Uz"/>
                     <constraint firstItem="iOm-R0-Pw0" firstAttribute="leading" secondItem="BeP-kv-42o" secondAttribute="leading" constant="8" id="YLM-SR-0eG"/>
                     <constraint firstItem="c6X-oZ-e65" firstAttribute="leading" secondItem="iOm-R0-Pw0" secondAttribute="trailing" constant="4" id="aUT-9D-hOC"/>
                     <constraint firstItem="c6X-oZ-e65" firstAttribute="top" secondItem="BeP-kv-42o" secondAttribute="top" constant="8" id="eEE-qu-Dqf"/>
@@ -68,10 +74,12 @@
                     <constraint firstAttribute="trailing" secondItem="b1g-Th-wlG" secondAttribute="trailing" constant="8" id="hsc-qC-Ehf"/>
                     <constraint firstItem="iOm-R0-Pw0" firstAttribute="top" secondItem="BeP-kv-42o" secondAttribute="top" constant="8" id="huC-VY-hug"/>
                     <constraint firstItem="b1g-Th-wlG" firstAttribute="leading" secondItem="iOm-R0-Pw0" secondAttribute="trailing" constant="4" id="nRo-yO-w8o"/>
+                    <constraint firstItem="2Nz-As-C3W" firstAttribute="height" secondItem="iOm-R0-Pw0" secondAttribute="height" id="oEn-NA-3k1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bodyLabel" destination="b1g-Th-wlG" id="R6q-bW-nSv"/>
+                <outlet property="iconButton" destination="2Nz-As-C3W" id="yTV-Va-pTY"/>
                 <outlet property="iconImageView" destination="iOm-R0-Pw0" id="XkZ-PJ-D6X"/>
                 <outlet property="screenNameLabel" destination="ae9-ze-QGT" id="d5E-uT-FHa"/>
                 <outlet property="userNameLabel" destination="c6X-oZ-e65" id="7K4-XU-WJo"/>
