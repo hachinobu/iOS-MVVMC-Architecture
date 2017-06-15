@@ -21,7 +21,7 @@ protocol UserProfileViewModelProtocol: class {
     var profileURL: Observable<URL?> { get }
 }
 
-final class UserProfileView: UIView {
+final class UserProfileView: UIView, NibLoadableView {
 
     @IBOutlet weak var profileBackgroundImageView: UIImageView!
     @IBOutlet weak var profileIconImageView: UIImageView!
@@ -38,9 +38,5 @@ final class UserProfileView: UIView {
         profileIconImageView.layer.cornerRadius = 8.0
         profileIconImageView.layer.masksToBounds = true
     }
-    
-    class func instance() -> UserProfileView {
-        return UINib(nibName: "UserProfileView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UserProfileView
-    }
-    
+        
 }

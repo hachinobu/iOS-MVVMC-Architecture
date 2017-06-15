@@ -14,7 +14,7 @@ import Kingfisher
 final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtocol {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    fileprivate lazy var loadingIndicatorView = LoadingIndicatorView.loadView()
     
     let bag = DisposeBag()
     var viewModel: UserTimeLineViewModelProtocol!
@@ -28,7 +28,7 @@ final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtoc
         return self.tableView.rx.reachedBottom
     }()
     
-    let userProfileView: UserProfileView = UserProfileView.instance()
+    fileprivate lazy var userProfileView: UserProfileView = UserProfileView.loadView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,7 @@ extension UserTimeLineViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
         tableView.tableHeaderView = userProfileView
+        tableView.tableFooterView = loadingIndicatorView
     }
     
     fileprivate func bindAuthStatus() {
@@ -114,11 +115,11 @@ extension UserTimeLineViewController {
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation
-            .drive(loadingIndicator.rx.isAnimating)
+            .drive(loadingIndicatorView.indicator.rx.isAnimating)
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation.map { !$0 }
-            .drive(loadingIndicator.rx.isHidden)
+            .drive(loadingIndicatorView.indicator.rx.isHidden)
             .addDisposableTo(bag)
         
         //TableViewCellのBind
