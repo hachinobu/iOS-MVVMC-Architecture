@@ -24,6 +24,12 @@ final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtoc
         return self.selectedTweetIdObserver.asObservable()
     }()
     
+    fileprivate var showFollowingListObserver = PublishSubject<String>()
+    lazy var showFollowingList: Observable<String> = self.showFollowingListObserver.asObservable()
+    
+    fileprivate var showFollowerListObserver = PublishSubject<String>()
+    lazy var showFollowerList: Observable<String> = self.showFollowerListObserver.asObservable()
+    
     lazy var reachedBottom: ControlEvent<Void> = {
         return self.tableView.rx.reachedBottom
     }()
@@ -106,6 +112,16 @@ extension UserTimeLineViewController {
                                                                           options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
                                                                           progressBlock: nil, completionHandler: nil)
             }).addDisposableTo(weakSelf.bag)
+            
+            weakSelf.userProfileView.followerListButton.rx.tap
+                .withLatestFrom(vm.userId).map { $0! }
+                .bind(to: weakSelf.showFollowerListObserver)
+                .addDisposableTo(weakSelf.bag)
+            
+            weakSelf.userProfileView.followingListButton.rx.tap
+                .withLatestFrom(vm.userId).map { $0! }
+                .bind(to: weakSelf.showFollowingListObserver)
+                .addDisposableTo(weakSelf.bag)
             
         }).addDisposableTo(bag)
         

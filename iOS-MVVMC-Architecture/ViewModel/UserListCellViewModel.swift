@@ -28,6 +28,7 @@ final class UserListCellViewModel: UserListCellViewModelProtocol {
     init(userId: Int, userName: String?, screenName: String?,
          description: String?, profileURL: URL?) {
         self.userId = userId
+        self.userNameObserver.value = userName
         self.screenNameObserver.value = screenName
         self.descriptionObserver.value = description
         self.profileURLObserver.value = profileURL

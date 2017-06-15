@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol UserTimeLineViewProtocol: TimeLineViewProtocol {
     var viewModel: UserTimeLineViewModelProtocol! { get }
+    var showFollowingList: Observable<String> { get }
+    var showFollowerList: Observable<String> { get }
 }

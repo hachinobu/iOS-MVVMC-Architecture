@@ -53,7 +53,36 @@ final class HomeTimeLineCoordinator: BaseCoordinator {
     
     private func showUserTimeLine(userId: String) {
         let userTimeLineView = viewFactory.generateUserTimeLineView(userId: userId)
+        
+        userTimeLineView.showFollowerList.subscribe(onNext: { [weak self] userId in
+            self?.showFollowerUserList(userId: userId)
+        }).addDisposableTo(bag)
+        
+        userTimeLineView.showFollowingList.subscribe(onNext: { [weak self] userId in
+            self?.showFollowingUserList(userId: userId)
+        }).addDisposableTo(bag)
+        
         router.push(presentable: userTimeLineView, animated: true, completion: nil)
+    }
+    
+    private func showFollowerUserList(userId: String) {
+        let followerListView = viewFactory.generateFollowerListView(userId: userId)
+        
+        followerListView.selectedUser.subscribe(onNext: { [weak self] userId in
+            self?.showUserTimeLine(userId: userId)
+        }).addDisposableTo(bag)
+        
+        router.push(presentable: followerListView, animated: true, completion: nil)
+    }
+    
+    private func showFollowingUserList(userId: String) {
+        let followingListView = viewFactory.generateFollowingListView(userId: userId)
+        
+        followingListView.selectedUser.subscribe(onNext: { [weak self] userId in
+            self?.showUserTimeLine(userId: userId)
+        }).addDisposableTo(bag)
+        
+        router.push(presentable: followingListView, animated: true, completion: nil)
     }
     
 }

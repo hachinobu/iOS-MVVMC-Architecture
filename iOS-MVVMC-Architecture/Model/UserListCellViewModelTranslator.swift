@@ -14,7 +14,7 @@ struct UserListCellViewModelTranslator: Translator {
         
         let userId = input.id
         let userName = input.name
-        let screenName = input.screenName
+        let screenName = "@" + input.screenName
         let description = input.description
         let profileImageURL = URL(string: input.profileImageHttpsUrl)
         

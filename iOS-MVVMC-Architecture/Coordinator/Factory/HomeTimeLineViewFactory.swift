@@ -12,4 +12,6 @@ protocol HomeTimeLineViewFactory {
     func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable
     func generateTweetDetailView(tweetId: String) -> TweetDetailViewProtocol & Presentable
     func generateUserTimeLineView(userId: String) -> UserTimeLineViewProtocol & Presentable
+    func generateFollowerListView(userId: String) -> UserListViewProtocol & Presentable
+    func generateFollowingListView(userId: String) -> UserListViewProtocol & Presentable
 }

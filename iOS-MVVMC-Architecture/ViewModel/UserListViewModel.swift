@@ -57,13 +57,16 @@ class UserListViewModel: UserListViewModelProtocol {
     
     private let fetchAction: Action<String?, UserCursor>
     
-    init<Request: TwitterRequestProtocol>(viewWillAppear: Driver<Void>, RequestType: Request.Type) where Request.Response == UserCursor {
+    init<Request: TwitterRequestProtocol>(viewWillAppear: Driver<Void>, userId: String, RequestType: Request.Type) where Request.Response == UserCursor {
         
         let account = AuthenticateTwitter.sharedInstance.currentAccount
             .asObservable().shareReplayLatestWhileConnected()
         
         fetchAction = Action { nextCursor in
-            let parameters = nextCursor != nil ? ["cursor": nextCursor!] : [:]
+            var parameters = ["user_id": userId]
+            if let nextCursor = nextCursor {
+                parameters["cursor"] = nextCursor
+            }
             return account
                 .map { RequestType.init(account: $0, parameters: parameters) }
                 .flatMap { TwitterApiClient.execute(request: $0) }
@@ -77,18 +80,7 @@ class UserListViewModel: UserListViewModelProtocol {
             }).addDisposableTo(bag)
                 
     }
-    
-    func bindRefresh(refresh: Driver<Void>) {
         
-        refresh.asObservable()
-            .withLatestFrom(loadingIndicatorAnimation.asObservable())
-            .filter { !$0 }
-            .map { _ in return nil }
-            .bind(to: fetchAction.inputs)
-            .addDisposableTo(bag)
-        
-    }
-    
     func bindReachedBottom(reachedBottom: Driver<Void>) {
         
         reachedBottom.asObservable()

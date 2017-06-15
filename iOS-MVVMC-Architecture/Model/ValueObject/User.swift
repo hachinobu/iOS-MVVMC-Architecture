@@ -26,7 +26,7 @@ struct User {
     let location: String?
     let name: String
     let profileBackgroundColor: String
-    let profileBackgroundImageHttpsUrl: String
+    let profileBackgroundImageHttpsUrl: String?
     let profileBannerUrl: String?
     let profileImageHttpsUrl: String
     let profileTextColor: String
@@ -56,7 +56,7 @@ extension User: ImmutableMappable {
         location = try? map.value("location")
         name = try map.value("name")
         profileBackgroundColor = try map.value("profile_background_color")
-        profileBackgroundImageHttpsUrl = try map.value("profile_background_image_url_https")
+        profileBackgroundImageHttpsUrl = try? map.value("profile_background_image_url_https")
         profileBannerUrl = try? map.value("profile_banner_url")
         profileImageHttpsUrl = try map.value("profile_image_url_https")
         profileTextColor = try map.value("profile_text_color")

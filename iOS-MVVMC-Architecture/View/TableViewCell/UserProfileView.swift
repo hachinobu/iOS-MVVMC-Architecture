@@ -11,6 +11,7 @@ import RxSwift
 import Kingfisher
 
 protocol UserProfileViewModelProtocol: class {
+    var userId: Observable<String?> { get }
     var userName: Observable<String?> { get }
     var screenName: Observable<String?> { get }
     var description: Observable<String?> { get }

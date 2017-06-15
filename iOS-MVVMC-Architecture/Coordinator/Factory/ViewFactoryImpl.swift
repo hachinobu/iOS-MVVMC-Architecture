@@ -31,4 +31,18 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory {
         return userTimeLineView
     }
     
+    func generateFollowerListView(userId: String) -> Presentable & UserListViewProtocol {
+        let followerListView = UIStoryboard.instantiateInitialViewController(withType: UserListViewController.self)
+        let viewModel = UserListViewModel(viewWillAppear: followerListView.rx.viewWillAppear.asDriver(), userId: userId, RequestType: FollowerUserListRequest.self)
+        followerListView.viewModel = viewModel
+        return followerListView
+    }
+    
+    func generateFollowingListView(userId: String) -> Presentable & UserListViewProtocol {
+        let followingListView = UIStoryboard.instantiateInitialViewController(withType: UserListViewController.self)
+        let viewModel = UserListViewModel(viewWillAppear: followingListView.rx.viewWillAppear.asDriver(), userId: userId, RequestType: FollowingUserListRequest.self)
+        followingListView.viewModel = viewModel
+        return followingListView
+    }
+    
 }

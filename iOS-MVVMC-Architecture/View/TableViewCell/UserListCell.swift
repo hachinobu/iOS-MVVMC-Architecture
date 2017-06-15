@@ -26,15 +26,17 @@ class UserListCell: UITableViewCell {
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var bag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        iconImageView.layer.cornerRadius = 8.0
+        iconImageView.layer.masksToBounds = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = DisposeBag()
     }
 
 }

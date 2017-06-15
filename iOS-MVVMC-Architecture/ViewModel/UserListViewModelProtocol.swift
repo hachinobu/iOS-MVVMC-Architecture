@@ -16,7 +16,6 @@ protocol UserListViewModelProtocol {
     var error: Driver<Error> { get }
     var loadingIndicatorAnimation: Driver<Bool> { get }
     
-    func bindRefresh(refresh: Driver<Void>)
     func bindReachedBottom(reachedBottom: Driver<Void>)
     
 }

@@ -11,50 +11,38 @@ import RxSwift
 
 final class UserProfileViewModel: UserProfileViewModelProtocol {
     
+    private let userIdObserver = Variable<String?>(nil)
+    lazy var userId: Observable<String?> = self.userIdObserver.asObservable()
+    
     private let userNameObserver = Variable<String?>(nil)
-    lazy var userName: Observable<String?> = {
-        return self.userNameObserver.asObservable()
-    }()
+    lazy var userName: Observable<String?> = self.userNameObserver.asObservable()
     
     private let screenNameObserver = Variable<String?>(nil)
-    lazy var screenName: Observable<String?> = {
-        return self.screenNameObserver.asObservable()
-    }()
+    lazy var screenName: Observable<String?> = self.screenNameObserver.asObservable()
     
     private let descriptionObserver = Variable<String?>(nil)
-    lazy var description: Observable<String?> = {
-        return self.descriptionObserver.asObservable()
-    }()
+    lazy var description: Observable<String?> = self.descriptionObserver.asObservable()
     
     private let locationObserver = Variable<String?>(nil)
-    lazy var location: Observable<String?> = {
-        return self.locationObserver.asObservable()
-    }()
+    lazy var location: Observable<String?> = self.locationObserver.asObservable()
     
     private let followingCountObserver = Variable<String?>(nil)
-    lazy var followingCount: Observable<String?> = {
-        return self.followingCountObserver.asObservable()
-    }()
+    lazy var followingCount: Observable<String?> = self.followingCountObserver.asObservable()
     
     private let followerCountObserver = Variable<String?>(nil)
-    lazy var followerCount: Observable<String?> = {
-        return self.followerCountObserver.asObservable()
-    }()
+    lazy var followerCount: Observable<String?> = self.followerCountObserver.asObservable()
     
     private let backgroundImageURLObserver = Variable<URL?>(nil)
-    lazy var backgroundImageURL: Observable<URL?> = {
-        return self.backgroundImageURLObserver.asObservable()
-    }()
+    lazy var backgroundImageURL: Observable<URL?> = self.backgroundImageURLObserver.asObservable()
     
     private let profileURLObserver = Variable<URL?>(nil)
-    lazy var profileURL: Observable<URL?> = {
-        return self.profileURLObserver.asObservable()
-    }()
+    lazy var profileURL: Observable<URL?> = self.profileURLObserver.asObservable()
     
-    init(userName: String?, screenName: String?,
+    init(userId: String?, userName: String?, screenName: String?,
          description: String?, location: String?,
          followingCount: String?, followerCount: String?,
          backgroundImageURL: URL?, profileURL: URL?) {
+        userIdObserver.value = userId
         userNameObserver.value = userName
         screenNameObserver.value = screenName
         descriptionObserver.value = description
