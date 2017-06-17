@@ -20,6 +20,12 @@
 		AD1FD28C1EF2B7AA00F9B5FE /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD28B1EF2B7AA00F9B5FE /* UserListViewController.swift */; };
 		AD1FD28E1EF2B88700F9B5FE /* UserListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD28D1EF2B88700F9B5FE /* UserListViewProtocol.swift */; };
 		AD1FD2901EF2CEBF00F9B5FE /* FollowingUserListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD28F1EF2CEBF00F9B5FE /* FollowingUserListRequest.swift */; };
+		AD1FD2921EF4E79700F9B5FE /* SearchTweetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2911EF4E79700F9B5FE /* SearchTweetRequest.swift */; };
+		AD1FD2941EF4E9B800F9B5FE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2931EF4E9B800F9B5FE /* SearchResult.swift */; };
+		AD1FD2961EF4EE6F00F9B5FE /* SearchTweetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2951EF4EE6F00F9B5FE /* SearchTweetListViewModel.swift */; };
+		AD1FD2981EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2971EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift */; };
+		AD1FD29A1EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */; };
+		AD1FD29D1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD29C1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift */; };
 		AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */; };
 		AD4BD3281EE83D67008209B9 /* UserTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */; };
 		AD7A5CB21EE598B600C5E674 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */; };
@@ -121,6 +127,12 @@
 		AD1FD28B1EF2B7AA00F9B5FE /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		AD1FD28D1EF2B88700F9B5FE /* UserListViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewProtocol.swift; sourceTree = "<group>"; };
 		AD1FD28F1EF2CEBF00F9B5FE /* FollowingUserListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingUserListRequest.swift; sourceTree = "<group>"; };
+		AD1FD2911EF4E79700F9B5FE /* SearchTweetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTweetRequest.swift; sourceTree = "<group>"; };
+		AD1FD2931EF4E9B800F9B5FE /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		AD1FD2951EF4EE6F00F9B5FE /* SearchTweetListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTweetListViewModel.swift; sourceTree = "<group>"; };
+		AD1FD2971EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendTweetTimeLineViewProtocol.swift; sourceTree = "<group>"; };
+		AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendLikeTweetTimeLineViewFactory.swift; sourceTree = "<group>"; };
+		AD1FD29C1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendLikeTweetTimeLineCoordinator.swift; sourceTree = "<group>"; };
 		AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
@@ -229,6 +241,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD1FD29B1EF57D3800F9B5FE /* TrendLikeTimeLineFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD1FD29C1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift */,
+				AD1FD2971EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift */,
+			);
+			path = TrendLikeTimeLineFlow;
+			sourceTree = "<group>";
+		};
 		ADF5D40A1EBF555E009E9F60 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +313,7 @@
 		C2577ACD1EC56E9F008E55C7 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				AD1FD29B1EF57D3800F9B5FE /* TrendLikeTimeLineFlow */,
 				C2577ADD1EC5B882008E55C7 /* HomeTimeLineFlow */,
 				C2577ACE1EC56EB8008E55C7 /* TabbarFlow */,
 			);
@@ -313,6 +335,7 @@
 				C2577AD61EC571F3008E55C7 /* CoordinatorFactory.swift */,
 				C2577AD81EC5725C008E55C7 /* CoordinatorFactoryImpl.swift */,
 				C2577AE41EC5C663008E55C7 /* HomeTimeLineViewFactory.swift */,
+				AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */,
 				C2577AE61EC5C6C5008E55C7 /* ViewFactoryImpl.swift */,
 			);
 			path = Factory;
@@ -417,6 +440,7 @@
 				AD1FD28F1EF2CEBF00F9B5FE /* FollowingUserListRequest.swift */,
 				C23B59101EE14A2C005C77D3 /* UserDetailRequest.swift */,
 				ADF5D4211ED17A91009E9F60 /* TweetDetailRequest.swift */,
+				AD1FD2911EF4E79700F9B5FE /* SearchTweetRequest.swift */,
 				C2814A781EAE1F5500A11462 /* TwitterApiClient.swift */,
 				C2814A7A1EAE1F9000A11462 /* Translator.swift */,
 				C2814A861EAF473C00A11462 /* NetworkValidator.swift */,
@@ -457,6 +481,7 @@
 				C2BF425D1EEE9E2300D4A25E /* AuthViewModelProtocol.swift */,
 				AD1FD2831EF1741600F9B5FE /* UserListViewModelProtocol.swift */,
 				AD1FD2851EF1749D00F9B5FE /* UserListViewModel.swift */,
+				AD1FD2951EF4EE6F00F9B5FE /* SearchTweetListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -467,6 +492,7 @@
 				C2814A741EAE124600A11462 /* User.swift */,
 				C2814A761EAE19B900A11462 /* Tweet.swift */,
 				AD1FD2871EF1771B00F9B5FE /* UserCursor.swift */,
+				AD1FD2931EF4E9B800F9B5FE /* SearchResult.swift */,
 			);
 			path = ValueObject;
 			sourceTree = "<group>";
@@ -646,6 +672,7 @@
 				AD1FD2821EF1711100F9B5FE /* UserListCellViewModel.swift in Sources */,
 				ADF5D40C1EBF5593009E9F60 /* UIVIewController+RxExtension.swift in Sources */,
 				C2577AD91EC5725C008E55C7 /* CoordinatorFactoryImpl.swift in Sources */,
+				AD1FD29A1EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift in Sources */,
 				ADBED8E11EE838F400CF1B06 /* UserTimeLineViewModelProtocol.swift in Sources */,
 				C2577AB91EC1D0AC008E55C7 /* Storyboard+Extension.swift in Sources */,
 				C23B59091EE016B3005C77D3 /* UserTimeLineViewController.swift in Sources */,
@@ -680,15 +707,18 @@
 				C2814A771EAE19B900A11462 /* Tweet.swift in Sources */,
 				C259EAFF1EE6D00E00E28036 /* UserProfileViewModel.swift in Sources */,
 				AD1FD2801EF170BD00F9B5FE /* UserListCellViewModelTranslator.swift in Sources */,
+				AD1FD2941EF4E9B800F9B5FE /* SearchResult.swift in Sources */,
 				ADF5D4221ED17A91009E9F60 /* TweetDetailRequest.swift in Sources */,
 				C2577AC81EC33235008E55C7 /* RouterImpl.swift in Sources */,
 				C2577AD01EC56EF9008E55C7 /* TabbarViewProtocol.swift in Sources */,
 				C2577ACC1EC569B0008E55C7 /* BaseCoordinator.swift in Sources */,
+				AD1FD2921EF4E79700F9B5FE /* SearchTweetRequest.swift in Sources */,
 				C2577AE51EC5C663008E55C7 /* HomeTimeLineViewFactory.swift in Sources */,
 				ADF5D4111EC1F7FC009E9F60 /* AppCoordinator.swift in Sources */,
 				C2577AE91EC5C90D008E55C7 /* HomeTimeLineCoordinator.swift in Sources */,
 				C2814A7B1EAE1F9000A11462 /* Translator.swift in Sources */,
 				AD1FD27C1EF16C9800F9B5FE /* UserListCell.swift in Sources */,
+				AD1FD2961EF4EE6F00F9B5FE /* SearchTweetListViewModel.swift in Sources */,
 				ADF5D4281ED1BD4A009E9F60 /* TweetDetailCellViewModel.swift in Sources */,
 				C23B59111EE14A2C005C77D3 /* UserDetailRequest.swift in Sources */,
 				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
@@ -699,6 +729,7 @@
 				AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */,
 				ADF5D42A1ED1BE79009E9F60 /* TweetDetailCellViewModelTranslator.swift in Sources */,
 				C2814A791EAE1F5500A11462 /* TwitterApiClient.swift in Sources */,
+				AD1FD29D1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift in Sources */,
 				C227187F1ED6C33300AB10CF /* LoadingIndicatorView.swift in Sources */,
 				C2577AE31EC5C253008E55C7 /* TimeLineViewProtocol.swift in Sources */,
 				C2D603EC1EB07620003D64F9 /* HomeTimeLineViewModel.swift in Sources */,
@@ -711,6 +742,7 @@
 				C2577AEF1EC9B9E3008E55C7 /* TimeLineViewModel.swift in Sources */,
 				C2814A851EAF3DB500A11462 /* TwitterRequestProtocol+Translator.swift in Sources */,
 				C227187A1ED2BAF800AB10CF /* UITableViewController+RxExtension.swift in Sources */,
+				AD1FD2981EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift in Sources */,
 				C2577AD21EC5700A008E55C7 /* TabbarCoordinator.swift in Sources */,
 				AD4BD3281EE83D67008209B9 /* UserTimeLineViewProtocol.swift in Sources */,
 				C27C6C321EA8D5AC0018A423 /* TwitterRequestProtocol.swift in Sources */,

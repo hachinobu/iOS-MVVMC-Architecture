@@ -11,4 +11,5 @@ import UIKit
 protocol CoordinatorFactory {
     func generateTabbarCoordinator() -> (presentable: Presentable?, coordinator: Coordinator)
     func generateHomeTimeLineCoordinator(navigationController: UINavigationController?) -> Coordinator
+    func generateTrendLikeTweetTimeLineCoordinator(navigationController: UINavigationController?) -> Coordinator
 }

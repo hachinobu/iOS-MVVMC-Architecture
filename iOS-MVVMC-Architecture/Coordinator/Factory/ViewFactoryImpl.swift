@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ViewFactoryImpl: HomeTimeLineViewFactory {
+final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineViewFactory {
     
     func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let homeTimeLineView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
@@ -43,6 +43,13 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory {
         let viewModel = UserListViewModel(viewWillAppear: followingListView.rx.viewWillAppear.asDriver(), userId: userId, RequestType: FollowingUserListRequest.self)
         followingListView.viewModel = viewModel
         return followingListView
+    }
+    
+    func generateTrendLikeTweetTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
+        let trendLikeListView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
+        let viewModel = SearchTweetListViewModel(viewWillAppear: trendLikeListView.rx.viewWillAppear.asDriver(), RequestType: SearchTweetRequest.self, searchQuery: "lang:ja min_faves:2000")
+        trendLikeListView.viewModel = viewModel
+        return trendLikeListView
     }
     
 }

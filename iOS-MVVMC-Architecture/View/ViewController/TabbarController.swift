@@ -12,13 +12,17 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
 
     enum SelectTabNumber: Int {
         case homeTimeLine = 0
+        case trendLike
         case accountDetail
     }
     
     private var selectHomeTimeLineTabObserver = PublishSubject<UINavigationController>()
-    var selectHomeTimeLineTabObservable: Observable<UINavigationController> {
-        return selectHomeTimeLineTabObserver.asObservable()
-    }
+    lazy var selectHomeTimeLineTabObservable: Observable<UINavigationController> =
+        self.selectHomeTimeLineTabObserver.asObservable()
+    
+    private var selectTrendLikeTweetListTabObserver = PublishSubject<UINavigationController>()
+    lazy var selectTrendLikeTweetListTabObservable: Observable<UINavigationController> =
+        self.selectTrendLikeTweetListTabObserver.asObservable()
     
     private var selectAccountDetailTabObserver = PublishSubject<UINavigationController>()
     var selectAccountDetailTabObservable: Observable<UINavigationController> {
@@ -47,6 +51,8 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         switch tabRoot {
         case .homeTimeLine:
             selectHomeTimeLineTabObserver.onNext(navigationController)
+        case .trendLike:
+            selectTrendLikeTweetListTabObserver.onNext(navigationController)
         case .accountDetail:
             selectAccountDetailTabObserver.onNext(navigationController)
         }
