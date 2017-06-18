@@ -119,6 +119,9 @@ extension HomeTimeLineViewController {
                 .bind(to: weakSelf.selectedUserObserver)
                 .addDisposableTo(cell.bag)
             
+            cellViewModel.retweetCount.bind(to: cell.retweetCountLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.likeCount.bind(to: cell.likeCountLabel.rx.text).addDisposableTo(cell.bag)
+            
             return cell
             }.addDisposableTo(bag)
         

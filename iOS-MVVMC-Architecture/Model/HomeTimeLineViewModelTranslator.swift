@@ -19,12 +19,19 @@ struct HomeTimeLineViewModelTranslator: Translator {
         let body = input.text
         let profileURL = URL(string: input.user.profileImageHttpsUrl)
         
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let likeCount = numberFormatter.string(for: input.favoriteCount) ?? ""
+        let retweetCount = numberFormatter.string(for: input.retweetCount) ?? ""
+        
         let viewModel = HomeTimeLineCellViewModel(id: id,
                                                   userId: userId,
                                                   userName: userName,
                                                   screenName: screenName,
                                                   body: body,
-                                                  profileURL: profileURL)
+                                                  profileURL: profileURL,
+                                                  retweetCount: retweetCount,
+                                                  likeCount: likeCount)
         return viewModel
         
     }

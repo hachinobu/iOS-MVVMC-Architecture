@@ -18,6 +18,8 @@ protocol TimeLineCellViewModel: class {
     var screenName: Observable<String?> { get }
     var body: Observable<String?> { get }
     var profileURL: Observable<URL?> { get }
+    var retweetCount: Observable<String?> { get }
+    var likeCount: Observable<String?> { get }
     
 }
 
@@ -28,6 +30,8 @@ final class TimeLineTweetCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     
     var bag = DisposeBag()
     
