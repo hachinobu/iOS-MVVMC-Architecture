@@ -1,12 +1,12 @@
 PODS:
-  - Action (3.0.0):
-    - RxCocoa (~> 3.4.0)
-    - RxSwift (~> 3.4.0)
-  - Kingfisher (3.6.2)
-  - ObjectMapper (2.2.6)
-  - RxCocoa (3.4.0):
+  - Action (3.1.1):
+    - RxCocoa (~> 3.4)
     - RxSwift (~> 3.4)
-  - RxSwift (3.4.0)
+  - Kingfisher (3.10.2)
+  - ObjectMapper (2.2.7)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.5.0)
   - SamuraiTransition (0.5)
 
 DEPENDENCIES:
@@ -18,11 +18,11 @@ DEPENDENCIES:
   - SamuraiTransition
 
 SPEC CHECKSUMS:
-  Action: fed388b9160ad787a58cb34b5064db6dbaae7e45
-  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
-  ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
-  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
-  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  Action: e224bd151fe2e057f4189b4a9df0dc5d21264a9e
+  Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   SamuraiTransition: 5f7b7d1df490cb3b20641712cfb30003aa0d4397
 
 PODFILE CHECKSUM: 736c2582ae079545680c39332f707e20df39a137
