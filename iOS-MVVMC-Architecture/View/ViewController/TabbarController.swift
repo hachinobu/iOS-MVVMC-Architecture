@@ -8,11 +8,12 @@
 import UIKit
 import RxSwift
 
-class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarViewProtocol {
+final class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarViewProtocol {
 
     enum SelectTabNumber: Int {
         case homeTimeLine = 0
         case trendLike
+        case trendReTweet
         case accountDetail
     }
     
@@ -23,6 +24,10 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
     private var selectTrendLikeTweetListTabObserver = PublishSubject<UINavigationController>()
     lazy var selectTrendLikeTweetListTabObservable: Observable<UINavigationController> =
         self.selectTrendLikeTweetListTabObserver.asObservable()
+    
+    private var selectTrendReTweetTimeLineTabObserver = PublishSubject<UINavigationController>()
+    lazy var selectTrendReTweetTimeLineTabObservable: Observable<UINavigationController> =
+        self.selectTrendReTweetTimeLineTabObserver.asObservable()
     
     private var selectAccountDetailTabObserver = PublishSubject<UINavigationController>()
     var selectAccountDetailTabObservable: Observable<UINavigationController> {
@@ -53,6 +58,8 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
             selectHomeTimeLineTabObserver.onNext(navigationController)
         case .trendLike:
             selectTrendLikeTweetListTabObserver.onNext(navigationController)
+        case .trendReTweet:
+            selectTrendReTweetTimeLineTabObserver.onNext(navigationController)
         case .accountDetail:
             selectAccountDetailTabObserver.onNext(navigationController)
         }

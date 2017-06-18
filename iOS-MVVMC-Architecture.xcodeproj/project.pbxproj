@@ -26,6 +26,8 @@
 		AD1FD2981EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2971EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift */; };
 		AD1FD29A1EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */; };
 		AD1FD29D1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD29C1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift */; };
+		AD1FD29F1EF64AE200F9B5FE /* TrendReTweetTimeLineViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD29E1EF64AE200F9B5FE /* TrendReTweetTimeLineViewFactory.swift */; };
+		AD1FD2A21EF65F9A00F9B5FE /* TrendReTweetTimeLineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FD2A11EF65F9A00F9B5FE /* TrendReTweetTimeLineCoordinator.swift */; };
 		AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */; };
 		AD4BD3281EE83D67008209B9 /* UserTimeLineViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */; };
 		AD7A5CB21EE598B600C5E674 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */; };
@@ -133,6 +135,8 @@
 		AD1FD2971EF5798E00F9B5FE /* TrendTweetTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendTweetTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendLikeTweetTimeLineViewFactory.swift; sourceTree = "<group>"; };
 		AD1FD29C1EF57D8C00F9B5FE /* TrendLikeTweetTimeLineCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendLikeTweetTimeLineCoordinator.swift; sourceTree = "<group>"; };
+		AD1FD29E1EF64AE200F9B5FE /* TrendReTweetTimeLineViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendReTweetTimeLineViewFactory.swift; sourceTree = "<group>"; };
+		AD1FD2A11EF65F9A00F9B5FE /* TrendReTweetTimeLineCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendReTweetTimeLineCoordinator.swift; sourceTree = "<group>"; };
 		AD4BD3251EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD4BD3271EE83D67008209B9 /* UserTimeLineViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeLineViewProtocol.swift; sourceTree = "<group>"; };
 		AD7A5CB11EE598B600C5E674 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
@@ -250,6 +254,14 @@
 			path = TrendLikeTimeLineFlow;
 			sourceTree = "<group>";
 		};
+		AD1FD2A01EF65F4900F9B5FE /* TrendReTweetTimeLineFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD1FD2A11EF65F9A00F9B5FE /* TrendReTweetTimeLineCoordinator.swift */,
+			);
+			path = TrendReTweetTimeLineFlow;
+			sourceTree = "<group>";
+		};
 		ADF5D40A1EBF555E009E9F60 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +325,7 @@
 		C2577ACD1EC56E9F008E55C7 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				AD1FD2A01EF65F4900F9B5FE /* TrendReTweetTimeLineFlow */,
 				AD1FD29B1EF57D3800F9B5FE /* TrendLikeTimeLineFlow */,
 				C2577ADD1EC5B882008E55C7 /* HomeTimeLineFlow */,
 				C2577ACE1EC56EB8008E55C7 /* TabbarFlow */,
@@ -336,6 +349,7 @@
 				C2577AD81EC5725C008E55C7 /* CoordinatorFactoryImpl.swift */,
 				C2577AE41EC5C663008E55C7 /* HomeTimeLineViewFactory.swift */,
 				AD1FD2991EF57ADE00F9B5FE /* TrendLikeTweetTimeLineViewFactory.swift */,
+				AD1FD29E1EF64AE200F9B5FE /* TrendReTweetTimeLineViewFactory.swift */,
 				C2577AE61EC5C6C5008E55C7 /* ViewFactoryImpl.swift */,
 			);
 			path = Factory;
@@ -724,6 +738,8 @@
 				C2577AC61EC32C89008E55C7 /* Router.swift in Sources */,
 				C27C6C301EA8C2BE0018A423 /* AuthenticateTwitter.swift in Sources */,
 				C2BF425E1EEE9E2300D4A25E /* AuthViewModelProtocol.swift in Sources */,
+				AD1FD2A21EF65F9A00F9B5FE /* TrendReTweetTimeLineCoordinator.swift in Sources */,
+				AD1FD29F1EF64AE200F9B5FE /* TrendReTweetTimeLineViewFactory.swift in Sources */,
 				AD1FD2901EF2CEBF00F9B5FE /* FollowingUserListRequest.swift in Sources */,
 				ADF5D4261ED1BC30009E9F60 /* TweetDetailViewModel.swift in Sources */,
 				AD4BD3261EE83D3F008209B9 /* HomeTimeLineViewProtocol.swift in Sources */,
