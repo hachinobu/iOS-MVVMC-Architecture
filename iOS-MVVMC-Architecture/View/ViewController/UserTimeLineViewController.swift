@@ -14,7 +14,7 @@ import Kingfisher
 final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtocol {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    fileprivate lazy var loadingIndicatorView = LoadingIndicatorView.loadView()
     
     let bag = DisposeBag()
     var viewModel: UserTimeLineViewModelProtocol!
@@ -24,11 +24,17 @@ final class UserTimeLineViewController: UIViewController, UserTimeLineViewProtoc
         return self.selectedTweetIdObserver.asObservable()
     }()
     
+    fileprivate var showFollowingListObserver = PublishSubject<String>()
+    lazy var showFollowingList: Observable<String> = self.showFollowingListObserver.asObservable()
+    
+    fileprivate var showFollowerListObserver = PublishSubject<String>()
+    lazy var showFollowerList: Observable<String> = self.showFollowerListObserver.asObservable()
+    
     lazy var reachedBottom: ControlEvent<Void> = {
         return self.tableView.rx.reachedBottom
     }()
     
-    let userProfileView: UserProfileView = UserProfileView.instance()
+    fileprivate lazy var userProfileView: UserProfileView = UserProfileView.loadView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,7 @@ extension UserTimeLineViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
         tableView.tableHeaderView = userProfileView
+        tableView.tableFooterView = loadingIndicatorView
     }
     
     fileprivate func bindAuthStatus() {
@@ -106,6 +113,16 @@ extension UserTimeLineViewController {
                                                                           progressBlock: nil, completionHandler: nil)
             }).addDisposableTo(weakSelf.bag)
             
+            weakSelf.userProfileView.followerListButton.rx.tap
+                .withLatestFrom(vm.userId).map { $0! }
+                .bind(to: weakSelf.showFollowerListObserver)
+                .addDisposableTo(weakSelf.bag)
+            
+            weakSelf.userProfileView.followingListButton.rx.tap
+                .withLatestFrom(vm.userId).map { $0! }
+                .bind(to: weakSelf.showFollowingListObserver)
+                .addDisposableTo(weakSelf.bag)
+            
         }).addDisposableTo(bag)
         
         viewModel.tweets
@@ -114,11 +131,11 @@ extension UserTimeLineViewController {
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation
-            .drive(loadingIndicator.rx.isAnimating)
+            .drive(loadingIndicatorView.indicator.rx.isAnimating)
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation.map { !$0 }
-            .drive(loadingIndicator.rx.isHidden)
+            .drive(loadingIndicatorView.indicator.rx.isHidden)
             .addDisposableTo(bag)
         
         //TableViewCellのBind
@@ -137,6 +154,9 @@ extension UserTimeLineViewController {
                                                 options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
                                                 progressBlock: nil, completionHandler: nil)
             }).addDisposableTo(cell.bag)
+            
+            cellViewModel.retweetCount.bind(to: cell.retweetCountLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.likeCount.bind(to: cell.likeCountLabel.rx.text).addDisposableTo(cell.bag)
             
             return cell
             }.addDisposableTo(bag)

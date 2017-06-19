@@ -13,7 +13,7 @@ import Kingfisher
 
 class HomeTimeLineViewController: UITableViewController, HomeTimeLineViewProtocol {
     
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    fileprivate lazy var loadingIndicatorView = LoadingIndicatorView.loadView()
     
     let bag = DisposeBag()
     var viewModel: TimeLineViewModel!
@@ -51,6 +51,7 @@ extension HomeTimeLineViewController {
         tableView.dataSource = nil
         tableView.delegate = nil
         tableView.refreshControl = UIRefreshControl()
+        tableView.tableFooterView = loadingIndicatorView
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(withType: TimeLineTweetCell.self)
@@ -89,11 +90,11 @@ extension HomeTimeLineViewController {
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation
-            .drive(loadingIndicator.rx.isAnimating)
+            .drive(loadingIndicatorView.indicator.rx.isAnimating)
             .addDisposableTo(bag)
         
         viewModel.loadingIndicatorAnimation.map { !$0 }
-            .drive(loadingIndicator.rx.isHidden)
+            .drive(loadingIndicatorView.indicator.rx.isHidden)
             .addDisposableTo(bag)
         
         //TableViewCellのBind
@@ -118,6 +119,9 @@ extension HomeTimeLineViewController {
                 .bind(to: weakSelf.selectedUserObserver)
                 .addDisposableTo(cell.bag)
             
+            cellViewModel.retweetCount.bind(to: cell.retweetCountLabel.rx.text).addDisposableTo(cell.bag)
+            cellViewModel.likeCount.bind(to: cell.likeCountLabel.rx.text).addDisposableTo(cell.bag)
+            
             return cell
             }.addDisposableTo(bag)
         
@@ -138,6 +142,4 @@ extension HomeTimeLineViewController {
     
     
 }
-
-
 

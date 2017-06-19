@@ -21,4 +21,14 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return HomeTimeLineCoordinator(viewFactory: ViewFactoryImpl(), coordinatorFactory: CoordinatorFactoryImpl(), router: RouterImpl(rootController: nav))
     }
     
+    func generateTrendLikeTweetTimeLineCoordinator(navigationController: UINavigationController?) -> Coordinator {
+        let nav = navigationController ?? UINavigationController()
+        return TrendLikeTweetTimeLineCoordinator(viewFactory: ViewFactoryImpl(), coordinatorFactory: CoordinatorFactoryImpl(), router: RouterImpl(rootController: nav))
+    }
+    
+    func generateTrendReTweetTimeLineCoordinator(navigationController: UINavigationController?) -> Coordinator {
+        let nav = navigationController ?? UINavigationController()
+        return TrendReTweetTimeLineCoordinator(viewFactory: ViewFactoryImpl(), coordinatorFactory: CoordinatorFactoryImpl(), router: RouterImpl(rootController: nav))
+    }
+    
 }

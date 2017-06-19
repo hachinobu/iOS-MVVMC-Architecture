@@ -1,37 +1,30 @@
 //
-//  TimeLineTweetCell.swift
+//  UserListCell.swift
 //  iOS-MVVMC-Architecture
 //
-//  Created by Nishinobu.Takahiro on 2017/05/15.
+//  Created by Takahiro Nishinobu on 2017/06/14.
 //  Copyright © 2017年 hachinobu. All rights reserved.
 //
 
 import UIKit
 import RxSwift
-import Kingfisher
 
-protocol TimeLineCellViewModel: class {
+protocol UserListCellViewModelProtocol {
     
-    var id: Int64 { get }
     var userId: Int { get }
     var userName: Observable<String?> { get }
     var screenName: Observable<String?> { get }
-    var body: Observable<String?> { get }
+    var description: Observable<String?> { get }
     var profileURL: Observable<URL?> { get }
-    var retweetCount: Observable<String?> { get }
-    var likeCount: Observable<String?> { get }
     
 }
 
-final class TimeLineTweetCell: UITableViewCell {
-    
+class UserListCell: UITableViewCell {
+
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
-    @IBOutlet weak var bodyLabel: UILabel!
-    @IBOutlet weak var retweetCountLabel: UILabel!
-    @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var bag = DisposeBag()
     
@@ -45,5 +38,5 @@ final class TimeLineTweetCell: UITableViewCell {
         super.prepareForReuse()
         bag = DisposeBag()
     }
-    
+
 }

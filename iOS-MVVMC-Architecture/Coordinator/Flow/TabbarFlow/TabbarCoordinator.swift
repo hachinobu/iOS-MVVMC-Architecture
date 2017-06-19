@@ -31,11 +31,33 @@ class TabbarCoordinator: BaseCoordinator {
             self.runHomeTimeLineFlow(navigationController: navigationController)
         }).addDisposableTo(bag)
         
+        tabbarView.selectTrendLikeTweetListTabObservable.subscribe(onNext: { [unowned self] navigationController in
+            self.runTrendLikeListFlow(navigationController: navigationController)
+        }).addDisposableTo(bag)
+        
+        tabbarView.selectTrendReTweetTimeLineTabObservable.subscribe(onNext: { [unowned self] navigationController in
+            self.runTrendReTweetTimeLineTabFlow(navigationController: navigationController)
+        }).addDisposableTo(bag)
+        
     }
     
     private func runHomeTimeLineFlow(navigationController: UINavigationController) {
         guard navigationController.viewControllers.isEmpty else { return }
         let coordinator = self.coordinatorFactory.generateHomeTimeLineCoordinator(navigationController: navigationController)
+        coordinator.start()
+        addDependency(coordinator: coordinator)
+    }
+    
+    private func runTrendLikeListFlow(navigationController: UINavigationController) {
+        guard navigationController.viewControllers.isEmpty else { return }
+        let coordinator = coordinatorFactory.generateTrendLikeTweetTimeLineCoordinator(navigationController: navigationController)
+        coordinator.start()
+        addDependency(coordinator: coordinator)
+    }
+    
+    private func runTrendReTweetTimeLineTabFlow(navigationController: UINavigationController) {
+        guard navigationController.viewControllers.isEmpty else { return }
+        let coordinator = coordinatorFactory.generateTrendReTweetTimeLineCoordinator(navigationController: navigationController)
         coordinator.start()
         addDependency(coordinator: coordinator)
     }

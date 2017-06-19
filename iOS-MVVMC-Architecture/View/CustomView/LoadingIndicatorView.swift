@@ -8,9 +8,8 @@
 
 import UIKit
 
-class LoadingIndicatorView: UIView {
+class LoadingIndicatorView: UIView, NibLoadableView {
 
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-
 }

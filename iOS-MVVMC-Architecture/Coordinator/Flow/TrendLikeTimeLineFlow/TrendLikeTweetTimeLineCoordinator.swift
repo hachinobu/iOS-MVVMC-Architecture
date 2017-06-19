@@ -1,44 +1,44 @@
 //
-//  HomeTimeLineCoordinator.swift
+//  TrendLikeTweetTimeLineCoordinator.swift
 //  iOS-MVVMC-Architecture
 //
-//  Created by Nishinobu.Takahiro on 2017/05/12.
+//  Created by Takahiro Nishinobu on 2017/06/18.
 //  Copyright © 2017年 hachinobu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RxSwift
 
-final class HomeTimeLineCoordinator: BaseCoordinator {
+final class TrendLikeTweetTimeLineCoordinator: BaseCoordinator {
     
     private let bag = DisposeBag()
     
-    private let viewFactory: HomeTimeLineViewFactory
+    private let viewFactory: HomeTimeLineViewFactory & TrendLikeTweetTimeLineViewFactory
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
-    init(viewFactory: HomeTimeLineViewFactory, coordinatorFactory: CoordinatorFactory, router: Router) {
+    init(viewFactory: (HomeTimeLineViewFactory & TrendLikeTweetTimeLineViewFactory), coordinatorFactory: CoordinatorFactory, router: Router) {
         self.viewFactory = viewFactory
         self.coordinatorFactory = coordinatorFactory
         self.router = router
     }
     
     override func start() {
-        presentHomeTimeLine()
+        presentTrendLikeTweetTimeLine()
     }
     
-    private func presentHomeTimeLine() {
+    private func presentTrendLikeTweetTimeLine() {
+        let trendLikeTweetTimeLineView = viewFactory.generateTrendLikeTweetTimeLineView()
         
-        let homeTimeLineView = viewFactory.generateHomeTimeLineView()
-        homeTimeLineView.selectedTweetId.subscribe(onNext: { [weak self] id in
+        trendLikeTweetTimeLineView.selectedTweetId.subscribe(onNext: { [weak self] id in
             self?.showDetail(tweetId: id)
         }).addDisposableTo(bag)
         
-        homeTimeLineView.selectedUser.subscribe(onNext: { [weak self] userId in
-            self?.showUserTimeLine(userId: userId)
+        trendLikeTweetTimeLineView.selectedUser.subscribe(onNext: { [weak self] id in
+            self?.showUserTimeLine(userId: id)
         }).addDisposableTo(bag)
         
-        router.setRoot(presentable: homeTimeLineView, hideBar: false)
+        router.setRoot(presentable: trendLikeTweetTimeLineView, hideBar: false)
         
     }
     

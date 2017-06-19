@@ -11,6 +11,8 @@ import RxSwift
 
 protocol TabbarViewProtocol: class {
     var selectHomeTimeLineTabObservable: Observable<UINavigationController> { get }
+    var selectTrendLikeTweetListTabObservable: Observable<UINavigationController> { get }
+    var selectTrendReTweetTimeLineTabObservable: Observable<UINavigationController> { get }
     var selectAccountDetailTabObservable: Observable<UINavigationController> { get }
     var loadTabbarObservable: Observable<UINavigationController> { get }
 }

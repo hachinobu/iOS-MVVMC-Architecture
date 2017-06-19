@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Zt-UW-UKe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Zt-UW-UKe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +21,7 @@
                     <connections>
                         <segue destination="yyP-y6-lss" kind="relationship" relationship="viewControllers" id="GyV-5Z-ZiC"/>
                         <segue destination="0xM-p1-aEn" kind="relationship" relationship="viewControllers" id="Ygd-S6-rci"/>
+                        <segue destination="OaX-vX-cKV" kind="relationship" relationship="viewControllers" id="P7q-wX-xiD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRd-mW-XMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFt-Hf-7AH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="-236.13193403298354"/>
+            <point key="canvasLocation" x="486" y="-293"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="tVB-Wt-AVT">
@@ -57,7 +58,21 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn5-s7-FjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="418.74062968515744"/>
+            <point key="canvasLocation" x="1270" y="-293"/>
+        </scene>
+        <!--Item 3-->
+        <scene sceneID="GHb-Yc-Jk6">
+            <objects>
+                <navigationController id="OaX-vX-cKV" userLabel="Item 3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mM0-34-bU0" userLabel="Item 3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Yd-zs-d3H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fAl-Pn-ToR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="412"/>
         </scene>
     </scenes>
 </document>

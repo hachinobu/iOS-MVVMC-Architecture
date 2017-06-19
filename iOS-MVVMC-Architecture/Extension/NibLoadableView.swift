@@ -16,6 +16,11 @@ extension NibLoadableView where Self: UIView {
         return String(describing: self)
     }
     
+    static func loadView() -> Self {
+        return UINib(nibName: nibName, bundle: nil)
+            .instantiate(withOwner: self, options: nil)[0] as! Self
+    }
+    
 }
 
 extension UITableViewCell: NibLoadableView {}
