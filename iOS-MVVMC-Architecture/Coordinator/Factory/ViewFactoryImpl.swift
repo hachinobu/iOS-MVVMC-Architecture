@@ -12,6 +12,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateHomeTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let homeTimeLineView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
+        homeTimeLineView.title = "ホーム"
         let viewModel = HomeTimeLineViewModel(viewWillAppear: homeTimeLineView.rx.viewWillAppear.asDriver(), RequestType: HomeTimelineRequest.self)
         homeTimeLineView.viewModel = viewModel
         return homeTimeLineView
@@ -19,6 +20,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateTweetDetailView(tweetId: String) -> TweetDetailViewProtocol & Presentable {
         let tweetDetailView = UIStoryboard.instantiateInitialViewController(withType: TweetDetailViewController.self)
+        tweetDetailView.title = "詳細"
         let viewModel = TweetDetailViewModel(tweetId: tweetId, viewWillAppear: tweetDetailView.rx.viewWillAppear.asDriver())
         tweetDetailView.viewModel = viewModel
         return tweetDetailView
@@ -33,6 +35,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateFollowerListView(userId: String) -> Presentable & UserListViewProtocol {
         let followerListView = UIStoryboard.instantiateInitialViewController(withType: UserListViewController.self)
+        followerListView.title = "フォロワー一覧"
         let viewModel = UserListViewModel(viewWillAppear: followerListView.rx.viewWillAppear.asDriver(), userId: userId, RequestType: FollowerUserListRequest.self)
         followerListView.viewModel = viewModel
         return followerListView
@@ -40,6 +43,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateFollowingListView(userId: String) -> Presentable & UserListViewProtocol {
         let followingListView = UIStoryboard.instantiateInitialViewController(withType: UserListViewController.self)
+        followingListView.title = "フォロー一覧"
         let viewModel = UserListViewModel(viewWillAppear: followingListView.rx.viewWillAppear.asDriver(), userId: userId, RequestType: FollowingUserListRequest.self)
         followingListView.viewModel = viewModel
         return followingListView
@@ -47,6 +51,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateTrendLikeTweetTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let trendLikeListView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
+        trendLikeListView.title = "いいね 2000+"
         let viewModel = SearchTweetListViewModel(viewWillAppear: trendLikeListView.rx.viewWillAppear.asDriver(), RequestType: SearchTweetRequest.self, searchQuery: "lang:ja min_faves:2000")
         trendLikeListView.viewModel = viewModel
         return trendLikeListView
@@ -54,6 +59,7 @@ final class ViewFactoryImpl: HomeTimeLineViewFactory, TrendLikeTweetTimeLineView
     
     func generateTrendReTweetTimeLineView() -> HomeTimeLineViewProtocol & Presentable {
         let trendReTweetTimeLineView = UIStoryboard.instantiateInitialViewController(withType: HomeTimeLineViewController.self)
+        trendReTweetTimeLineView.title = "リツイート 2000+"
         let viewModel = SearchTweetListViewModel(viewWillAppear: trendReTweetTimeLineView.rx.viewWillAppear.asDriver(), RequestType: SearchTweetRequest.self, searchQuery: "lang:ja min_retweets:2000")
         trendReTweetTimeLineView.viewModel = viewModel
         return trendReTweetTimeLineView
