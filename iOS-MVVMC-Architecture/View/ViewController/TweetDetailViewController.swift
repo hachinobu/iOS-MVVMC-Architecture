@@ -39,10 +39,12 @@ extension TweetDetailViewController {
     
     fileprivate func bindTableView() {
         
-        viewModel.tweets.drive(tableView.rx.items) { [weak self] _, row, cellViewModel in
+        viewModel.tweets.drive(tableView.rx.items(cellIdentifier: TweetDetailCell.nibName, cellType: TweetDetailCell.self)) { [weak self] row, cellViewModel, cell in
             
-            guard let weakSelf = self else { return UITableViewCell() }
-            let cell = weakSelf.tableView.dequeueReusableCell(forIndexPath: IndexPath(row: row, section: 0)) as TweetDetailCell
+            guard let strongSelf = self else {
+                return
+            }
+            
             cellViewModel.userName.bind(to: cell.userNameLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.screenName.bind(to: cell.screenNameLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.body.bind(to: cell.bodyLabel.rx.text).addDisposableTo(cell.bag)
@@ -62,14 +64,12 @@ extension TweetDetailViewController {
                     }
                     return id
                 }
-                .bind(to: weakSelf.selectedUserObserver)
+                .bind(to: strongSelf.selectedUserObserver)
                 .addDisposableTo(cell.bag)
             
             cellViewModel.statusCount.asDriver(onErrorJustReturn: nil)
                 .drive(cell.countLabel.rx.text)
                 .addDisposableTo(cell.bag)
-            
-            return cell
             
         }.addDisposableTo(bag)
         

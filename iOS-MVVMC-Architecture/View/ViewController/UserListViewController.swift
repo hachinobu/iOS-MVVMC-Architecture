@@ -70,9 +70,8 @@ extension UserListViewController {
             .addDisposableTo(bag)
         
         //TableViewCellのBind
-        viewModel.users.drive(tableView.rx.items) { [weak self] _, row, cellViewModel in
-            guard let weakSelf = self else { return UITableViewCell() }
-            let cell = weakSelf.tableView.dequeueReusableCell(forIndexPath: IndexPath(row: row, section: 0)) as UserListCell
+        viewModel.users.drive(tableView.rx.items(cellIdentifier: UserListCell.nibName, cellType: UserListCell.self)) { row, cellViewModel, cell in
+            
             cellViewModel.userName.bind(to: cell.userNameLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.screenName.bind(to: cell.screenNameLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.description.bind(to: cell.descriptionLabel.rx.text).addDisposableTo(cell.bag)
@@ -86,12 +85,10 @@ extension UserListViewController {
                     cell?.iconImageView.kf.setImage(with: resource, placeholder: nil,
                                                     options: [.transition(ImageTransition.fade(1.0)), .cacheMemoryOnly],
                                                     progressBlock: nil, completionHandler: nil)
-                  
+                    
                 }).addDisposableTo(cell.bag)
             
-            return cell
-            
-            }.addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
         tableView.rx.modelSelected(UserListCellViewModelProtocol.self).do(onNext: { [weak self] _ in
             if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {

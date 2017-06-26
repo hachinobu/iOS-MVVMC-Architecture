@@ -98,9 +98,12 @@ extension HomeTimeLineViewController {
             .addDisposableTo(bag)
         
         //TableViewCellのBind
-        viewModel.tweets.drive(tableView.rx.items) { [weak self] _, row, cellViewModel in
-            guard let weakSelf = self else { return UITableViewCell() }
-            let cell = weakSelf.tableView.dequeueReusableCell(forIndexPath: IndexPath(row: row, section: 0)) as TimeLineTweetCell
+        viewModel.tweets.drive(tableView.rx.items(cellIdentifier: TimeLineTweetCell.nibName, cellType: TimeLineTweetCell.self)) { [weak self] row, cellViewModel, cell in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
             cellViewModel.userName.bind(to: cell.userNameLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.screenName.bind(to: cell.screenNameLabel.rx.text).addDisposableTo(cell.bag)
             //observeOn(MainScheduler)とかasDeiverして繋ぐと初回のセル表示時にセルの高さが動的にならない。。
@@ -116,14 +119,13 @@ extension HomeTimeLineViewController {
             
             cell.iconButton.rx.tap
                 .map { cellViewModel.userId.description }
-                .bind(to: weakSelf.selectedUserObserver)
+                .bind(to: strongSelf.selectedUserObserver)
                 .addDisposableTo(cell.bag)
             
             cellViewModel.retweetCount.bind(to: cell.retweetCountLabel.rx.text).addDisposableTo(cell.bag)
             cellViewModel.likeCount.bind(to: cell.likeCountLabel.rx.text).addDisposableTo(cell.bag)
             
-            return cell
-            }.addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
         //TableViewCellタップ時に対象のTweetを知らせる
         tableView.rx.modelSelected(TimeLineCellViewModel.self)
